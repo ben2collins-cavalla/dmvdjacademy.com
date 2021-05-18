@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_photos.field_cavalla_photos_images
+    - field.field.paragraph.cavalla_photos.field_cavalla_photos_text
+    - field.field.paragraph.cavalla_photos.field_cavalla_photos_title
+    - paragraphs.paragraphs_type.cavalla_photos
+  module:
+    - image
+id: paragraph.cavalla_photos.default
+targetEntityType: paragraph
+bundle: cavalla_photos
+mode: default
+content:
+  field_cavalla_photos_images:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_cavalla_photos_text:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_photos_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,11 @@
+name: 'Cavalla: Reviews'
+type: module
+description: 'Use Cavalla Reviews to create rated critiques and evaluations.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Content Type'
+libraries:
+  - cavalla_reviews/global-styling
+dependencies:
+  - menu_ui
+  - pathauto

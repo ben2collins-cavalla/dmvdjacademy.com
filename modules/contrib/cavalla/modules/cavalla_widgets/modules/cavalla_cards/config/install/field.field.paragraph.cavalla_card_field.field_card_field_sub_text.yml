@@ -1,0 +1,21 @@
+uuid: 1f5a9fc1-32cf-442f-b5b0-61468d2d546b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_field_sub_text
+    - paragraphs.paragraphs_type.cavalla_card_field
+_core:
+  default_config_hash: RHH123QtAJPPLBT3kucrzDUt6_K4_PM-lmzn0toGkoI
+id: paragraph.cavalla_card_field.field_card_field_sub_text
+field_name: field_card_field_sub_text
+entity_type: paragraph
+bundle: cavalla_card_field
+label: Subtext
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

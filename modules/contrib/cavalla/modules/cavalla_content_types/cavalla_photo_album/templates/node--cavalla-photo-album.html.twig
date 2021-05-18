@@ -1,0 +1,35 @@
+<section id="photo_album_page_cavalla">
+    {%  if 'Off' in content.field_cavalla_photo_album_hide[0] %}
+      <!--Hero Image-->
+    	<section class="hero_image">
+        {%  if true in content.field_cavalla_photo_album_hero[0] %}
+          <picture class="">
+            <img  class="background_image" src="{% spaceless %}{{ content.field_cavalla_photo_album_hero[0] }}{% endspaceless %}" />
+          </picture>
+
+    		<section class="marketing_background_text center_text">
+    			<section class="container">
+    				<h1 class="title-header">{{ node.title.value }}</h1>
+    			</section>
+    		 </section>
+        {% endif %}
+    	</section>
+      <!--Hero Image-->
+
+      <!--Breadcrumb-->
+      <section class="breadcrumb_section p-3">
+          <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb">
+                {{ breadcrumb }}
+            </nav>
+          </div>
+      </section>
+     <!--Breadcrumb-->
+   {% endif %}
+
+  {% for i in 0..content.field_cavalla_photos_album_image|length %}
+    {% if content.field_cavalla_photos_album_image[i] is not null %}
+        {{-content.field_cavalla_photos_album_image[i]-}}
+    {% endif %}
+  {% endfor %}
+</section>

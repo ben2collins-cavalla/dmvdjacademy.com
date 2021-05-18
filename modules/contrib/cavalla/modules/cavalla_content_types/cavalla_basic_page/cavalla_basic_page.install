@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_basic_page install file.
+ */
+
+/**
+ *
+ */
+function cavalla_basic_page_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+}
+
+function cavalla_basic_page_update_8002() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+}
+
+function cavalla_basic_page_update_8003() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+}
+
+function cavalla_basic_page_update_8004() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+}
+
+function cavalla_basic_page_update_8005() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+  \Drupal::configFactory()->getEditable('field.field.node.cavalla_basic_page.field_cavalla_bp_intro_hide')->delete();
+  \Drupal::configFactory()->getEditable('field.storage.node.field_cavalla_bp_intro_hide')->delete();
+}
+
+function cavalla_basic_page_update_8006() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+}
+
+function cavalla_basic_page_update_8007() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_page');
+  \Drupal::configFactory()->getEditable('field.storage.node.field_cavalla_bp_hero_image')->delete();
+  \Drupal::configFactory()->getEditable('field.field.node.cavalla_basic_page.field_cavalla_bp_hero_image')->delete();
+
+}

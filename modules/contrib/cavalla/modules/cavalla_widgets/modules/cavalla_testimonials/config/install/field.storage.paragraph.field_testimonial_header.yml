@@ -1,0 +1,23 @@
+uuid: 29195b20-e90e-4d0c-b4fc-3719aa3d6ef3
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: j3blnMJ4Zb3HZufBAXNpDdX1TYP4fqMw1S9alwv9HMY
+id: paragraph.field_testimonial_header
+field_name: field_testimonial_header
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

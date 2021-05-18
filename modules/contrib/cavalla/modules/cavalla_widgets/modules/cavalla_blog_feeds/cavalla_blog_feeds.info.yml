@@ -1,0 +1,15 @@
+name: 'Cavalla: Blog Feeds'
+type: module
+description: 'Use the Cavalla Blog Feed to display a list of Cavalla Blogs organized by either category or tag.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Widgets'
+dependencies:
+  - entity_reference_revisions
+  - paragraphs
+  - field_group
+  - file
+  - image
+  - node
+  - user
+  - cavalla_blog

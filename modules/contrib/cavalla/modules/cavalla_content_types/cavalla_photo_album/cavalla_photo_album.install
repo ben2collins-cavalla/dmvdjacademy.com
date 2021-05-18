@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ *
+ */
+function cavalla_photo_album_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_photo_album');
+}
+
+/**
+ *
+ */
+function cavalla_photo_album_update_8002() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_photo_album');
+}

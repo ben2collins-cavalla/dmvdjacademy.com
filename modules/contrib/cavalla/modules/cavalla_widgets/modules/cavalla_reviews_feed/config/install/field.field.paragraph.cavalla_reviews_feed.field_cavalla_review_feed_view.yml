@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_review_feed_view
+    - paragraphs.paragraphs_type.cavalla_reviews_feed
+    - views.view.cavalla_review_feed
+  module:
+    - viewfield
+id: paragraph.cavalla_reviews_feed.field_cavalla_review_feed_view
+field_name: field_cavalla_review_feed_view
+entity_type: paragraph
+bundle: cavalla_reviews_feed
+label: 'Review Feed'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    token_help: ''
+    display_id: page_1
+    arguments: ''
+    items_to_display: ''
+    target_uuid: 8b5ca75c-b1ce-4fcf-b9e0-cf7a648f5734
+default_value_callback: ''
+settings:
+  force_default: false
+  allowed_views:
+    cavalla_review_feed: cavalla_review_feed
+    cavalla_photo_album_feed: '0'
+    comment: '0'
+    content: '0'
+    block_content: '0'
+    files: '0'
+    frontpage: '0'
+    media: '0'
+    media_entity_browser: '0'
+    user_admin_people: '0'
+    comments_recent: '0'
+    content_recent: '0'
+    taxonomy_term: '0'
+    watchdog: '0'
+    webform_submissions: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+  allowed_display_types:
+    page: page
+    block: '0'
+    embed: '0'
+    entity_browser: '0'
+    feed: '0'
+    default: '0'
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

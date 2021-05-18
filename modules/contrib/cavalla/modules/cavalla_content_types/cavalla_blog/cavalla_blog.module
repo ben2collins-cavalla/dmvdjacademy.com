@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_blog module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\user\Entity\User;
+
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_blog_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_blog':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our node templates in this module.
+ */
+function cavalla_blog_theme($existing, $type, $theme, $path) {
+  return [
+    'node__cavalla_blog' => [
+      'base hook' => 'node',
+    ],
+
+    // Cavalla Popular Post.
+    'paragraph__cavalla_blog_popular_post' => [
+      'base hook' => 'paragraph',
+    ],
+    // Cavalla Recent Post.
+    'paragraph__cavalla_blog_recent_post' => [
+      'base hook' => 'paragraph',
+    ],
+
+    // Cavalla Reccommeded Post.
+    'paragraph__cavalla_blog_reccomened_post' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+function cavalla_blog_preprocess_node__cavalla_blog__teaser(&$variables) {
+  $node = $variables['elements']['#node'];
+  $user = User::load($node->get('uid')->target_id);
+  $first_name = $user->get('field_user_first_name')->value;
+  $last_name = $user->get('field_user_last_name')->value;
+  $variables['author'] =  $first_name .' '. $last_name ;
+ }
+
+
+ function cavalla_blog_preprocess_node__cavalla_blog(&$variables) {
+  $node = $variables['elements']['#node'];
+
+  $user = User::load($node->get('uid')->target_id);
+  $first_name = $user->get('field_user_first_name')->value;
+  $last_name = $user->get('field_user_last_name')->value;
+
+  $variables['author_name'] =  $first_name .' '. $last_name ;
+  $variables['user_bio'] = $user->get('field_user_bio')->value;
+
+  if (!$user->user_picture->isEmpty()) {
+    $variables['user_image']= file_create_url($user->user_picture->entity->getFileUri());
+  }
+  else{
+    $variables['user_image']= 'themes/contrib/cavalla_theme/templates/_includes/global/images/male.png';
+  }
+
+ }

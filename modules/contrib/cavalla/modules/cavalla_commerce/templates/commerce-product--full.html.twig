@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section class="w-100 d-md-table commerce_bundle">
+  <section class="d-md-table-cell align-middle">
+    <section class="container">
+      <div class="row h-100">
+        <div class="col-lg-6 col-md-12 featurettes_image p-3">
+            <section class="product_image"><img src="{{ image }}" alt="Product image" width="100%" height="400" /></section>
+        </div>
+        <div class="col-lg-6 col-md-12 featurettes_text my-auto ">
+          <aside class="featurette">
+            <h2 class="featurette-heading">{{ product.title[0] }}</h2>
+            <p><b>Price:</b> {{product.variation_price[0]}}</p>
+            <section class="product_body">{{ product.body[0] }}</section>
+            <section class="product_color mb-3">
+            {% for value in colors  %}
+              <section class="product_color_wrapper">
+                <small class="color">{{ value.color }}</small>
+                <a href="{{ value.url }}"><img src="{{ value.image }}" width="100%" height="100%" alt="" /></a>
+              </section>
+            {% endfor %}
+            </section>
+            <section class="product_variations">
+              {{ product.variations }}
+            </section>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>

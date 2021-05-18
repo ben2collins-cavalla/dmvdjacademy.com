@@ -1,0 +1,133 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_bp_widgets
+    - node.type.cavalla_basic_page
+    - paragraphs.paragraphs_type.cavalla_accordion
+    - paragraphs.paragraphs_type.cavalla_basic_html
+    - paragraphs.paragraphs_type.cavalla_blog_feeds
+    - paragraphs.paragraphs_type.cavalla_call_to_action
+    - paragraphs.paragraphs_type.cavalla_card
+    - paragraphs.paragraphs_type.cavalla_embed_media
+    - paragraphs.paragraphs_type.cavalla_feature_blog_post
+    - paragraphs.paragraphs_type.cavalla_featurette
+    - paragraphs.paragraphs_type.cavalla_photo_album_feed
+    - paragraphs.paragraphs_type.cavalla_product_feed
+    - paragraphs.paragraphs_type.cavalla_testimonials
+    - paragraphs.paragraphs_type.cavalla_webform
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: syDv-9QQwvhMrokeRq7A7pbQbNf_xnERUNpZEi-ZYp8
+id: node.cavalla_basic_page.field_cavalla_bp_widgets
+field_name: field_cavalla_bp_widgets
+entity_type: node
+bundle: cavalla_basic_page
+label: Widgets
+description: 'This content type creates basic pages for the Cavalla Theme'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cavalla_call_to_action: cavalla_call_to_action
+      cavalla_card: cavalla_card
+      cavalla_featurette: cavalla_featurette
+      cavalla_testimonials: cavalla_testimonials
+      cavalla_timeline_carousel: cavalla_timeline_carousel
+      cavalla_webform: cavalla_webform
+      cavalla_accordion: cavalla_accordion
+      cavalla_basic_html: cavalla_basic_html
+      cavalla_blog_feeds: cavalla_blog_feeds
+      cavalla_embed_media: cavalla_embed_media
+      cavalla_feature_blog_post: cavalla_feature_blog_post
+      cavalla_photo_album_feed: cavalla_photo_album_feed
+      cavalla_product_feed: cavalla_product_feed
+    target_bundles_drag_drop:
+      cavalla_call_to_action:
+        enabled: true
+        weight: 9
+      cavalla_card:
+        enabled: true
+        weight: 10
+      cavalla_card_field:
+        weight: 11
+        enabled: false
+      cavalla_card_introduction:
+        weight: 12
+        enabled: false
+      cavalla_featurette:
+        enabled: true
+        weight: 14
+      cavalla_testimonials:
+        enabled: true
+        weight: 15
+      cavalla_testimonials_field:
+        weight: 16
+        enabled: false
+      cavalla_timeline_carousel:
+        weight: 17
+        enabled: true
+      cavalla_timeline_carousel_field:
+        weight: 18
+        enable: false
+      cavalla_webform:
+        enabled: true
+        weight: 19
+      cavalla_accordion:
+        enabled: true
+        weight: 24
+      cavalla_accordion_field:
+        weight: 25
+        enabled: false
+      cavalla_basic_html:
+        enabled: true
+        weight: 26
+      cavalla_blog_feeds:
+        enabled: true
+        weight: 27
+      cavalla_blog_popular_post:
+        weight: 28
+        enabled: false
+      cavalla_blog_reccomened_post:
+        weight: 29
+        enabled: false
+      cavalla_blog_recent_post:
+        weight: 30
+        enabled: false
+      cavalla_embed_media:
+        enabled: true
+        weight: 35
+      cavalla_commerce_product_feed:
+        weight: 36
+        enabled: false
+      cavalla_embed_media_soundcloud:
+        weight: 36
+        enabled: false
+      cavalla_embed_media_youtube:
+        weight: 37
+        enabled: false
+      cavalla_feature_blog_post:
+        enabled: true
+        weight: 38
+      cavalla_photo_album_feed:
+        enabled: true
+        weight: 40
+      cavalla_photos:
+        weight: 41
+        enabled: false
+      cavalla_reviews_feed:
+        weight: 42
+        enabled: false
+      cavalla_product_feed:
+        enabled: true
+        weight: 43
+      cavalla_taxonomy_feed:
+        weight: 43
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_accordion.field_cavalla_accordion_field
+    - field.field.paragraph.cavalla_accordion.field_cavalla_accordion_subtext
+    - field.field.paragraph.cavalla_accordion.field_cavalla_accordion_title
+    - paragraphs.paragraphs_type.cavalla_accordion
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_cavalla_accordion_intro:
+      children:
+        - field_cavalla_accordion_title
+        - field_cavalla_accordion_subtext
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Introduction
+      region: content
+    group_cavalla_accordion:
+      children:
+        - field_cavalla_accordion_field
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Accordion(s)
+      region: content
+id: paragraph.cavalla_accordion.default
+targetEntityType: paragraph
+bundle: cavalla_accordion
+mode: default
+content:
+  field_cavalla_accordion_field:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_cavalla_accordion_subtext:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_accordion_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

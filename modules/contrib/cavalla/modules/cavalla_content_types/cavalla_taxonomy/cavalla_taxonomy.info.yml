@@ -1,0 +1,14 @@
+name: 'Cavalla: Taxonomy'
+type: module
+description: 'A means to create the Cavalla Taxonomy Term Page.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Content Type'
+dependencies:
+  - entity_reference_revisions
+  - paragraphs
+  - field_group
+  - image
+  - node
+  - taxonomy
+  - pathauto

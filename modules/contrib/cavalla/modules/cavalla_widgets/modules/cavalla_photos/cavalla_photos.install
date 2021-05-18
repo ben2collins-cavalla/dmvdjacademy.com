@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Update Hook.
+ */
+function cavalla_photos_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_photos');
+}

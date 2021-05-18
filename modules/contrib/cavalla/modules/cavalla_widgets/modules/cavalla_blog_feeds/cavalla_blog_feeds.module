@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_blog_feeds module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_blog_feeds_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_blog_feeds':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our paragraphs templates in this module.
+ */
+function cavalla_blog_feeds_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_blog_feeds' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ *
+ */
+function cavalla_blog_feeds_preprocess_paragraph__cavalla_blog_feeds(array &$variables) {
+
+  // Term id for selected taxonomy value.
+  $target_id = NULL;
+  if ( $variables['elements']['#paragraph']->field_cavalla_blog_feed_taxonomy->target_id){
+      $target_id =  $variables['elements']['#paragraph']->field_cavalla_blog_feed_taxonomy->target_id;
+  }
+
+  // Link Options
+  if ($variables['elements']['#paragraph']->field_cavalla_blog_feed_clo->value ) {
+      $variables['link_option'] = $variables['elements']['#paragraph']->field_cavalla_blog_feed_clo->value;
+  }
+
+ // var_dump( $variables['link_option'] );
+
+  // Article count value.
+  $blog_feed_count = 10;
+  if ($variables['elements']['#paragraph']->field_cavalla_blog_feed_count->value ) {
+      $blog_feed_count = $variables['elements']['#paragraph']->field_cavalla_blog_feed_count->value;
+  }
+
+  $variables['display_options'] = $variables['elements']['#paragraph']->field_cavalla_blog_feed_displays->value;
+  if ($blog_feed_count == 1) {
+    $variables['col_width'] = 'col-12 featurette';
+    $variables['blog_row_visible'] = FALSE;
+  }
+  else {
+    $variables['col_width'] = 'col-lg-8 col-md-12';
+    $variables['blog_row_visible'] = TRUE;
+  }
+
+  $variables['jumbotron_blog_feeds'] = views_embed_view('cavalla_blog_feeds', 'jumbotron_blog_feeds', $target_id, $blog_feed_count);
+  $variables['jumbotron_blog_feeds_main_feed'] = views_embed_view('cavalla_blog_feeds', 'jumbotron_blog_feeds_main_feed', $target_id);
+  $variables['cards_blog_feeds'] = views_embed_view('cavalla_blog_feeds', 'cards_blog_feeds', $target_id, $blog_feed_count);
+
+}
+
+function cavalla_blog_feeds_preprocess_views_view__cavalla_blog_feeds(&$variables){
+  $view = $variables['view'];
+  if ($view->current_display == 'cards_blog_feeds'){
+      $variables['attributes']['class'] = "row row-cols-1 row-cols-md-3";
+  }
+}
+/**
+ *
+ */
+function cavalla_blog_feeds_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() == 'cavalla_blog_feeds') {
+    if ($view->current_display == 'jumbotron_blog_feeds') {
+      $view->setItemsPerPage($args[1] - 1);
+      $view->setOffset(1);
+      $pager = $view->display_handler->getOption('pager');
+      $pager['type'] = 'some';
+      $view->display_handler->setOption('pager', $pager);
+    }
+
+    if ($view->current_display == 'jumbotron_blog_feeds_main_feed') {
+      $view->setItemsPerPage(1);
+      $view->setOffset(0);
+      $pager = $view->display_handler->getOption('pager');
+      $pager['type'] = 'some';
+      $view->display_handler->setOption('pager', $pager);
+    }
+
+    if ($view->current_display == 'cards_blog_feeds') {
+      $view->setItemsPerPage($args[1]);
+      //$view->setOffset(0);
+      $pager = $view->display_handler->getOption('pager');
+      $pager['type'] = 'some';
+      $view->display_handler->setOption('pager', $pager);
+    }
+  }
+}

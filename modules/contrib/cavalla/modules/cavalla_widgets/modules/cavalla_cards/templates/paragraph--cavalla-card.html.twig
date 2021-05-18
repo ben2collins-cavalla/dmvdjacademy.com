@@ -1,0 +1,26 @@
+<section id="card_bundle" data-animate-card="{{ content.field_card_animation[0] }}" class="py-3">
+  <section class="card_bundle">
+    <section class="container">
+      <section class="text-center">
+        {%  if true in content.field_cavalla_card_header[0] %}
+        <h1 class="header_text">{{ content.field_cavalla_card_header[0] }}</h1>
+        {% endif %}
+        {%  if true in content.field_cavalla_card_text[0] %}
+          <p class="lead">{{ content.field_cavalla_card_text[0] }}</p>
+        {% endif %}
+      </section>
+      <section class="card-columns">
+          {{ content.field_card_field }}
+      </section>
+      {% if content.field_card_link[0] %}
+      <section class="text-center hyperlinks mt-4">
+        {% for i in 0..content.field_card_link|length %}
+          {% if content.field_card_link[i] is not null %}
+            <a class="btn btn-dark" href="{{ content.field_card_link[i]['#url'] }}">{{ content.field_card_link[i]['#title'] }}&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+          {% endif %}
+        {% endfor %}
+      </section>
+      {% endif %}
+    </section>
+  </section>
+</section>

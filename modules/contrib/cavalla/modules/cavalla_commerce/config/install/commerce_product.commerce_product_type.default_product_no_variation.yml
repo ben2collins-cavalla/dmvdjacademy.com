@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: default_product_no_variation
+label: 'Default Product - No Variation'
+description: ''
+variationType: default_products_no_variation
+multipleVariations: false
+injectVariationFields: true
+traits: {  }
+locked: false

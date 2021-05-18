@@ -1,0 +1,25 @@
+<section class="py-3 testimonials_bundle" data-animate-testimonial="{{ content.field_testimonial_animation[0] }}" >
+	<div class="container">
+		<section class="text-center">
+			{%  if true in content.field_testimonial_header[0] %}
+			<h1 class="header_text">{{ content.field_testimonial_header[0] }}</h1>
+			{% endif %}
+
+			{%  if true in content.field_testimonial_text[0] %}
+			<p class="lead">{{ content.field_testimonial_text[0] }}</p>
+			{% endif %}
+		</section>
+		<section class="card-deck">
+			{{ content.field_testimonial_widget }}
+		</section>
+		{% if content.field_testimonial_hyperlink[0] %}
+		<section class="text-center hyperlinks mt-4">
+			{% for i in 0..content.field_testimonial_hyperlink|length %}
+				{% if content.field_testimonial_hyperlink[i] is not null %}
+				<a class="btn btn-dark" href="{{ content.field_testimonial_hyperlink[i]['#url'] }}">{{ content.field_testimonial_hyperlink[i]['#title'] }}&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+				{% endif %}
+			{% endfor %}
+		</section>
+		{% endif %}
+	</div>
+</section>

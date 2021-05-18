@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_basic_html.field_cavalla_bh_header
+    - field.field.paragraph.cavalla_basic_html.field_cavalla_bh_text
+    - field.field.paragraph.cavalla_basic_html.field_cavalla_bh_wysiwyg
+    - paragraphs.paragraphs_type.cavalla_basic_html
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_cavalla_bh_introduction:
+      children:
+        - field_cavalla_bh_header
+        - field_cavalla_bh_text
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Introduction
+    group_cavalla_bh_wysiwyg:
+      children:
+        - field_cavalla_bh_wysiwyg
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Text Editor'
+id: paragraph.cavalla_basic_html.default
+targetEntityType: paragraph
+bundle: cavalla_basic_html
+mode: default
+content:
+  field_cavalla_bh_header:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_bh_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_bh_wysiwyg:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

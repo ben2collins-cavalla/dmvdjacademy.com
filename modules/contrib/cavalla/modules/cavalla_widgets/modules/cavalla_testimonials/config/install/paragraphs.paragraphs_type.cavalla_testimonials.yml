@@ -1,0 +1,11 @@
+uuid: 28652e51-e629-4103-98ff-ffd5f14d82d3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5M-Js8k-M-K3eZm8nG1_RaEBC4roWugHP1-WPlKfK8o
+id: cavalla_testimonials
+label: Testimonials
+icon_uuid: null
+description: "A Paragraph Bundle that provides a means to create Testimonials.\t"
+behavior_plugins: {  }

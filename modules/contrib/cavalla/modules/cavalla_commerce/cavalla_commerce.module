@@ -1,0 +1,187 @@
+<?php
+
+/**
+ * @file
+ * cavalla_commerce module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\commerce_product\Entity\ProductType;
+use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_price\Entity\Currency;
+use \Drupal\file\Entity\File;
+use \Drupal\Core\Link;
+use \Drupal\Core\Url;
+use Drupal\Core\Entity\EntityType;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_commerce_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_commerce':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our node templates in this module.
+ */
+function cavalla_commerce_theme($existing, $type, $theme, $path) {
+  return [
+    'commerce_product__full' => [
+      'base hook' => 'commerce_product',
+    ],
+    'commerce_cart_flyout_offcanvas__default' => [
+      'base hook' => 'commerce_cart_flyout_offcanvas',
+    ],
+    'commerce_cart_flyout_offcanvas_contents_items__default' => [
+      'base hook' => 'commerce_cart_flyout_offcanvas_contents_items',
+    ],
+    'views_view__commerce_cart_form' => [
+      'base hook' => 'views_view',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocessor().
+ * Lets us define our node templates in this module.
+ */
+function cavalla_commerce_preprocess(array &$variables,$hook) {
+  if ($hook == 'form' && strpos($_SERVER['REQUEST_URI'], 'cart') !== FALSE) {
+      $variables['attributes']['class'][]='row';
+  }
+
+  if ($hook == 'commerce_order_total_summary') {
+      $variables['attributes']['class'][]='col-md-12';
+  }
+
+  if ($hook == 'commerce_checkout_form') {
+      $variables['attributes']['class'][]='container';
+  }
+
+  if ($hook == 'input__submit ' && $variables['attributes']['value']=='Remove') {
+      $variables['attributes']['class'][]='fa fa-trash';
+  }
+}
+
+
+
+
+function cavalla_commerce_preprocess_commerce_product(array &$variables) {
+  //Load Product
+  $product = $variables['elements']['#commerce_product'];
+
+  $product_id = $product->get('product_id')->value;
+  $product_type = $product->get('type')->target_id;
+
+  //Retrieve Default Product Variation ID
+  $default_var_id = (empty($product->getDefaultVariation()) ? $product_id : $product->getDefaultVariation()->id());
+  //Retrieve Variation ID from URL
+  //If Variation ID isn't in current URL use Default Variation ID
+  $variation_id = (\Drupal::request()->query->get('v') == NULL ? $default_var_id : \Drupal::request()->query->get('v'));
+  $variables['image'] =  _cavalla_commerce_image($variation_id);
+  $variables['colors'] = _cavalla_commerce_colors($product->getVariationIds(),$product_type);
+}
+
+function cavalla_commerce_preprocess_commerce_product_variation(array &$variables) {
+
+  $product_variation = $variables['elements']['#commerce_product_variation'];
+
+
+  //$variables['addToCart'] = \Drupal::formBuilder()->getForm('\Drupal\commerce_order\Form\OrderAddForm');
+
+  $variation_id = $product_variation->id();
+  $product_type = $product_variation->getProduct()->get('type')->target_id;
+
+  $variables['product'] = $product_variation->getProduct()->getTitle();
+  $variables['color'] = ($product_variation->hasField('attribute_color') ? $product_variation->getAttributeValue('attribute_color')->getName(): NULL);
+  $variables['size'] = ($product_variation->hasField('attribute_size') ? $product_variation->getAttributeValue('attribute_size')->getName() : NULL );
+  $variables['image'] = _cavalla_commerce_image($variation_id);
+  $variables['price'] = '$'. str_replace('USD', '', $product_variation ->getPrice()) ;
+
+}
+
+
+function cavalla_commerce_theme_suggestions_commerce_cart_flyout_offcanvas(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'commerce_cart_flyout_offcanvas__default';
+  return $suggestions;
+}
+
+function cavalla_commerce_theme_suggestions_commerce_cart_flyout_offcanvas_contents_items(array $variables) {
+  $suggestions = [];
+  $suggestions[] = 'commerce_cart_flyout_offcanvas_contents_items__default';
+  return $suggestions;
+}
+
+
+function cavalla_commerce_preprocess_commerce_cart_flyout_offcanvas_contents_items(array &$variables){
+  $variables['cart_url'] = getBaseUrl(). '/cart';
+}
+
+/**
+ * Retrieves Product Variation Images.
+ */
+
+function _cavalla_commerce_image($variation_id){
+
+  $image_path = '../modules/contrib/cavalla/modules/cavalla_commerce/src/images/600px-No_image_available.svg.png';
+
+  if ( !empty(ProductVariation::load($variation_id)) ){
+    $variation = ProductVariation::load($variation_id);
+    if ( $variation->hasField('field_commerce_var_image') && !empty($variation->get('field_commerce_var_image')->target_id)  ){
+        $file = File::load($variation->get('field_commerce_var_image')->target_id );
+        $image_uri = $file->getFileUri();
+        $image_path = file_create_url($image_uri);
+    }
+  }
+  return  $image_path;
+}
+
+/**
+ * Retrieves Product Variation Colors.
+ */
+function _cavalla_commerce_colors($variation_ids, $product_type){
+  $arr=[];
+  if(ProductType::load($product_type)->allowsMultipleVariations()){
+    if (!empty($variation_ids) ){
+      $variations = ProductVariation::loadMultiple($variation_ids);
+      foreach ($variations as  $value){
+        if (!empty($value->getAttributeValues()['attribute_color'])){
+          $color = $value->getAttributeValues()['attribute_color']->getName();
+          $arr[$color]['url'] = $value->toUrl()->toString();
+          if(!empty($value->get('field_commerce_var_image')->target_id)){
+            $file = File::load($value->get('field_commerce_var_image')->target_id);
+            $image_uri = $file->getFileUri();
+            file_create_url($image_uri);
+            $arr[$color]['image'] = file_create_url($image_uri);
+          }
+          else{
+            $arr[$color]['image'] = '../modules/contrib/cavalla/modules/cavalla_commerce/src/images/600px-No_image_available.svg.png';
+          }
+          $arr[$color]['color']= $color;
+        }
+      }
+    }
+  }
+  return $arr;
+}

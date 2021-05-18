@@ -1,0 +1,25 @@
+uuid: 5ab62c86-f52f-4675-8661-b4b6b131d0d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_link
+    - paragraphs.paragraphs_type.cavalla_card
+  module:
+    - link
+_core:
+  default_config_hash: nwYgbiXEjZoLS3Ca9QxvC5fYN8zn-1TkFjaa60z_Ev8
+id: paragraph.cavalla_card.field_card_link
+field_name: field_card_link
+entity_type: paragraph
+bundle: cavalla_card
+label: Hyperlinks
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,60 @@
+uuid: a232c541-f0b1-4aa8-882b-ea5065654535
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_animation
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_header
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_hyperlink
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_text
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_widget
+    - paragraphs.paragraphs_type.cavalla_testimonials
+  module:
+    - entity_reference_revisions
+    - link
+_core:
+  default_config_hash: 734tU1NqTpOYyVml5xEYrWqp_Xf29L_iovSvh8JN6pk
+id: paragraph.cavalla_testimonials.default
+targetEntityType: paragraph
+bundle: cavalla_testimonials
+mode: default
+content:
+  field_testimonial_header:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_testimonial_hyperlink:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_testimonial_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_testimonial_widget:
+    type: entity_reference_revisions_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_testimonial_animation: true
+  search_api_excerpt: true

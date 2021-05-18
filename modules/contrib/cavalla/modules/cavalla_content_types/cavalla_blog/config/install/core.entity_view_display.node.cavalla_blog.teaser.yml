@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cavalla_blog.field_cavalla_blog_category
+    - field.field.node.cavalla_blog.field_cavalla_blog_comments
+    - field.field.node.cavalla_blog.field_cavalla_blog_feature_img
+    - field.field.node.cavalla_blog.field_cavalla_blog_hero
+    - field.field.node.cavalla_blog.field_cavalla_blog_hero_img_hide
+    - field.field.node.cavalla_blog.field_cavalla_blog_sp_feeds
+    - field.field.node.cavalla_blog.field_cavalla_blog_summary
+    - field.field.node.cavalla_blog.field_cavalla_blog_widgets
+    - field.field.node.cavalla_blog.field_suggested_post_feeds_foot
+    - node.type.cavalla_blog
+  module:
+    - user
+id: node.cavalla_blog.teaser
+targetEntityType: node
+bundle: cavalla_blog
+mode: teaser
+content:
+  field_cavalla_blog_feature_img:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_cavalla_blog_summary:
+    type: basic_string
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_cavalla_blog_category: true
+  field_cavalla_blog_comments: true
+  field_cavalla_blog_hero: true
+  field_cavalla_blog_hero_img_hide: true
+  field_cavalla_blog_sp_feeds: true
+  field_cavalla_blog_widgets: true
+  field_suggested_post_feeds_foot: true

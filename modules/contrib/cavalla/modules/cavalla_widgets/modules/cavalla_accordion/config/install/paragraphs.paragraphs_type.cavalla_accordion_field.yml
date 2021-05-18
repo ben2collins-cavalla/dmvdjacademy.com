@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_accordion_field
+label: 'Accordion Field'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

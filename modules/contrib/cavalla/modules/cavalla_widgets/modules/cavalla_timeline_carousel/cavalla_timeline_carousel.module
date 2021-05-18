@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @file
+ * cavalla_timeline_carousel module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_timeline_carousel_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_timeline_carousel':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our node templates in this module.
+ */
+function cavalla_timeline_carousel_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_timeline_carousel' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__cavalla_timeline_carousel_field' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+function cavalla_timeline_carousel_preprocess_paragraph__cavalla_timeline_carousel_field(&$variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  $start_timestamp = new DateTime();
+  $end_timestamp = new DateTime();
+
+  $start_timestamp = $start_timestamp->setTimestamp( strtotime($paragraph->field_cavalla_tc_start_date->value) );
+  $end_timestamp = $end_timestamp->setTimestamp( strtotime($paragraph->field_cavalla_tc_end_date->value) );
+
+  $variables['start_date'] = $start_timestamp->format('M j, Y');
+  $variables['end_date'] = ( !empty($paragraph->field_cavalla_tc_end_date->value) ? '- '. $end_timestamp->format('M j, Y')  : '' );
+  $variables['date_year'] = $start_timestamp->format('Y');
+}

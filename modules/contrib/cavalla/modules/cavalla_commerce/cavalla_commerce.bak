@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * @file
+ * cavalla_commerce module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\commerce_product\Entity\ProductVariation;
+use Drupal\commerce_add_to_cart_link\AddToCartLink;
+use \Drupal\file\Entity\File;
+use \Drupal\Core\Link;
+use \Drupal\Core\Url;
+
+
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_commerce_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_commerce':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our node templates in this module.
+ */
+function cavalla_commerce_theme($existing, $type, $theme, $path) {
+  return [
+    'commerce_product__full' => [
+      'base hook' => 'commerce_product',
+    ],
+    'commerce_cart_flyout_offcanvas' => [
+      'base hook' => 'commerce_cart_flyout',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocessor().
+ * Lets us define our node templates in this module.
+ */
+
+function cavalla_commerce_preprocess_commerce_product(array &$variables) {
+  //Load Product
+  $product = $variables['elements']['#commerce_product'];
+
+  $product_id = $product->get('product_id')->value;
+  //Retrieve Default Product Variation ID
+  $default_var_id = $product->getDefaultVariation()->id();
+
+  //Retrieve Variation ID from URL
+  $variation_id = \Drupal::request()->query->get('v');
+
+  //If Variation ID isn't in current URL use Default Variation ID
+  $variation_id = ($variation_id == NULL ? $default_var_id : $variation_id);
+  $variables['variation_id']=$variation_id;
+  //Current Variation Color
+  $current_attr_color = ProductVariation::load($variation_id)->getAttributeValue('attribute_color')->getName();
+  $variables['size'] = _cavalla_commerce_size($product->getVariationIds(),$current_attr_color);
+  $variables['image'] =  _cavalla_commerce_image($variation_id);
+  $variables['colors'] = _cavalla_commerce_color($product->getVariationIds());
+  $variables['add_to_cart'] =  _cavalla_commerce_add_to_cart($variation_id);
+}
+
+/**
+ * Retrieves Product Variation Images.
+ */
+
+function _cavalla_commerce_image($variation_id){
+  $variation = ProductVariation::load($variation_id);
+  $file = File::load($variation->get('field_commerce_var_image')->target_id);
+  $image_uri = $file->getFileUri();
+  return file_create_url($image_uri);
+}
+
+/**
+ * Retrieves Product Variation Colors.
+ */
+function _cavalla_commerce_color($variation_ids){
+  $arr=[];
+  $variations = ProductVariation::loadMultiple($variation_ids);
+  foreach ($variations as  $value){
+    $color = $value->getAttributeValues()['attribute_color']->getName();
+    $arr[$color]['url'] = $value->toUrl()->toString();
+
+    $file = File::load($value->get('field_commerce_var_image')->target_id);
+    $image_uri = $file->getFileUri();
+    file_create_url($image_uri);
+    $arr[$color]['image'] = file_create_url($image_uri);
+  }
+  //var_dump( $attr_value_id );
+  return $arr;
+}
+
+/**
+ * Retrieves Product Variation Sizes.
+ */
+function _cavalla_commerce_size($variation_ids, $current_attr_color){
+  $arr=[];
+  $index=0;
+  $variations = ProductVariation::loadMultiple($variation_ids);
+  foreach ($variations as $value){
+    $color= $value->getAttributeValues()['attribute_color']->getName();
+    if ($color ==  $current_attr_color){
+      $index++;
+      $arr[$index] ['size']= $value->getAttributeValues()['attribute_size']->getName();
+      $arr[$index]['url'] = $value->toUrl()->toString();
+    }
+  }
+  return $arr;
+}
+
+function _cavalla_commerce_add_to_cart($variation_id){
+    $url = AddToCartLink::fromVariationId($variation_id)->url();
+    $link = Link::fromTextAndUrl('cart', $url)->toRenderable();
+    return $link['#url']->getInternalPath() ;
+}

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_webform
+label: 'Webform'
+icon_uuid: null
+icon_default: null
+description: "A Paragraph Bundle that provides a means to embed webforms to Cavalla Basic Pages\t\r\n"
+behavior_plugins: {  }

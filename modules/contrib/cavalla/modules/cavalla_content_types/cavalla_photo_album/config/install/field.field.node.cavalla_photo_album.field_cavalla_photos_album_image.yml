@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_photos_album_image
+    - node.type.cavalla_photo_album
+    - paragraphs.paragraphs_type.cavalla_photos
+  module:
+    - entity_reference_revisions
+id: node.cavalla_photo_album.field_cavalla_photos_album_image
+field_name: field_cavalla_photos_album_image
+entity_type: node
+bundle: cavalla_photo_album
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cavalla_photos: cavalla_photos
+    target_bundles_drag_drop:
+      cavalla_call_to_action:
+        weight: 10
+        enabled: false
+      cavalla_card:
+        weight: 11
+        enabled: false
+      cavalla_card_field:
+        weight: 12
+        enabled: false
+      cavalla_card_introduction:
+        weight: 13
+        enabled: false
+      cavalla_featurette:
+        weight: 14
+        enabled: false
+      cavalla_photos:
+        enabled: true
+        weight: 15
+      cavalla_testimonials:
+        weight: 16
+        enabled: false
+      cavalla_testimonials_field:
+        weight: 17
+        enabled: false
+      cavalla_webform:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,14 @@
+<div class="timeline_carousel_bundle">
+  <div class="swiper-container">
+      <div class="swiper-wrapper">
+      {% for i in 0..content.field_cavalla_tc_widgets|length %}
+        {% if content.field_cavalla_tc_widgets[i] is not null %}
+          {{ content.field_cavalla_tc_widgets[i] }}
+        {% endif %}
+      {% endfor %}
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_featurette
+label: Featurette
+icon_uuid: null
+icon_default: null
+description: 'Provides a paragraphs bundle for adding a Bootstrap Featurette section.'
+behavior_plugins: {  }

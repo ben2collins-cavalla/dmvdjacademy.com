@@ -1,0 +1,45 @@
+uuid: 3b321620-4140-4fc1-ac42-3ef2f2acfc60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_field
+    - paragraphs.paragraphs_type.cavalla_card
+    - paragraphs.paragraphs_type.cavalla_card_field
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: LPlXt4Ra97vlvaC3d-ivKZlo6fmplDAby7u5sPiDcgM
+id: paragraph.cavalla_card.field_card_field
+field_name: field_card_field
+entity_type: paragraph
+bundle: cavalla_card
+label: 'Bootstrap Cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cavalla_card_field: cavalla_card_field
+    target_bundles_drag_drop:
+      cavalla_card:
+        weight: 3
+        enabled: false
+      cavalla_card_field:
+        enabled: true
+        weight: 4
+      cavalla_call_to_action:
+        weight: 6
+        enabled: false
+      cavalla_input_field:
+        weight: 8
+        enabled: false
+      cavalla_input_field_image_includ:
+        weight: 9
+        enabled: false
+field_type: entity_reference_revisions

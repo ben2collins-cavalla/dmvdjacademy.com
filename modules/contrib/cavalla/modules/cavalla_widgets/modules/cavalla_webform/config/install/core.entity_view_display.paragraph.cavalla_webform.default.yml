@@ -1,0 +1,153 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_webform.field_cavalla_webform_hide_
+    - field.field.paragraph.cavalla_webform.field_cavalla_webform_hide_map
+    - field.field.paragraph.cavalla_webform.field_cavalla_webform_hide_wf
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_city
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_state
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_street
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_zipcode
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_company_name
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_email
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_intro_text
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_intro_title
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_map
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_telephone
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_webform
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_work_hours
+    - paragraphs.paragraphs_type.cavalla_webform
+  module:
+    - options
+    - telephone
+    - text
+    - webform
+id: paragraph.cavalla_webform.default
+targetEntityType: paragraph
+bundle: cavalla_webform
+mode: default
+content:
+  field_cavalla_webform_hide_:
+    weight: 15
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cavalla_webform_hide_map:
+    weight: 13
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cavalla_webform_hide_wf:
+    weight: 14
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cavalla_wf_address_city:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_wf_address_state:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cavalla_wf_address_street:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_wf_address_zipcode:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_wf_company_name:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_wf_email:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_wf_intro_text:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_wf_intro_title:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_wf_map:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_cavalla_wf_telephone:
+    weight: 4
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_cavalla_wf_webform:
+    weight: 12
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+  field_cavalla_wf_work_hours:
+    weight: 8
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,25 @@
+{
+    "name": "cavalla/cavalla_theme",
+    "type": "drupal-theme",
+    "description": "Base Drupal 8 Cavalla theme.",
+    "keywords": ["Drupal"],
+    "homepage": "https://github.com/ben2collins-cavalla/cavalla-theme",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+          "name": "Ben Collins",
+          "homepage": "https://cavallatech.com/about",
+          "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/ben2collins-cavalla/cavalla-theme"
+    },
+    "extra": {
+        "branch-alias": {
+        "8.x-1.x": "1.x-dev"
+        }
+    }
+
+}

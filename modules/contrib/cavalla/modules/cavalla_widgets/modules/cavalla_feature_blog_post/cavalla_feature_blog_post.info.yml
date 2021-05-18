@@ -1,0 +1,11 @@
+name: 'Cavalla: Feature Blog Post'
+type: module
+description: Use Cavalla Feature Blog Post to display feature Blog Posts.
+version: '8.x-1.0'
+core: '8.x'
+
+package: Cavalla Widgets
+dependencies:
+  - entity_reference_revisions
+  - paragraphs
+  - field_group

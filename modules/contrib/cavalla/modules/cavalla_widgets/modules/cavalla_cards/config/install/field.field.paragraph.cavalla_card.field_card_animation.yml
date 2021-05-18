@@ -1,0 +1,25 @@
+uuid: 883d67ab-8ddd-45bb-839f-2e22e2f878c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_animation
+    - paragraphs.paragraphs_type.cavalla_card
+_core:
+  default_config_hash: jqLSgsPDBEKiiamp9_pu4MBf4lOGM693ZtUdlwjxJIM
+id: paragraph.cavalla_card.field_card_animation
+field_name: field_card_animation
+entity_type: paragraph
+bundle: cavalla_card
+label: 'Activate Animation'
+description: "Select this checkbox to activate the widget's animation. \r\nAnimation will active as soon as the section is within your \r\ncomputer screen's viewport."
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cavalla_basic_page.field_cavalla_bp_hero_image_hide
+    - field.field.node.cavalla_basic_page.field_cavalla_bp_hero_media
+    - field.field.node.cavalla_basic_page.field_cavalla_bp_introduction
+    - field.field.node.cavalla_basic_page.field_cavalla_bp_widgets
+    - node.type.cavalla_basic_page
+  module:
+    - entity_reference_revisions
+    - user
+_core:
+  default_config_hash: Sv3UT1SugxB78mVc57MUgXpgECrRkb7BEyqpv-81Pdg
+id: node.cavalla_basic_page.default
+targetEntityType: node
+bundle: cavalla_basic_page
+mode: default
+content:
+  field_cavalla_bp_hero_image_hide:
+    weight: 103
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cavalla_bp_hero_media:
+    type: entity_reference_entity_view
+    weight: 108
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_cavalla_bp_introduction:
+    weight: 106
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_bp_widgets:
+    type: entity_reference_revisions_entity_view
+    weight: 104
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

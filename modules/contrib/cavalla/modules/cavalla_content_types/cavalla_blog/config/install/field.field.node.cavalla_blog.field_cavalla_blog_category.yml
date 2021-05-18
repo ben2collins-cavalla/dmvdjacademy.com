@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_blog_category
+    - node.type.cavalla_blog
+    - taxonomy.vocabulary.cavalla_blog_category
+    - taxonomy.vocabulary.cavalla_blog_tags
+id: node.cavalla_blog.field_cavalla_blog_category
+field_name: field_cavalla_blog_category
+entity_type: node
+bundle: cavalla_blog
+label: Category(s)/Tag(s)
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cavalla_blog_category: cavalla_blog_category
+      cavalla_blog_tags: cavalla_blog_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: cavalla_blog_category
+field_type: entity_reference

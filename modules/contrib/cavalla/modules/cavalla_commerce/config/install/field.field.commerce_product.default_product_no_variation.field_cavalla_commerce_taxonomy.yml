@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default_product_no_variation
+    - field.storage.commerce_product.field_cavalla_commerce_taxonomy
+    - taxonomy.vocabulary.cavalla_commerce
+    - taxonomy.vocabulary.commerce_tags
+id: commerce_product.default_product_no_variation.field_cavalla_commerce_taxonomy
+field_name: field_cavalla_commerce_taxonomy
+entity_type: commerce_product
+bundle: default_product_no_variation
+label: Taxonomy
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cavalla_commerce: cavalla_commerce
+      commerce_tags: commerce_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: cavalla_commerce
+field_type: entity_reference

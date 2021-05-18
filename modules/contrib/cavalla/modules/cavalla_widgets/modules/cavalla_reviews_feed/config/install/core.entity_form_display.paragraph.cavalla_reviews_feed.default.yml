@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_reviews_feed.field_cavalla_review_feed_view
+    - field.field.paragraph.cavalla_reviews_feed.field_cavalla_reviews_feed_text
+    - field.field.paragraph.cavalla_reviews_feed.field_cavalla_reviews_feed_title
+    - paragraphs.paragraphs_type.cavalla_reviews_feed
+  module:
+    - field_group
+    - viewfield
+third_party_settings:
+  field_group:
+    group_cavalla_reviews_feed_intro:
+      children:
+        - field_cavalla_reviews_feed_title
+        - field_cavalla_reviews_feed_text
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Introduction
+    group_cavalla_review_feed_view:
+      children:
+        - field_cavalla_review_feed_view
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Review Feed'
+id: paragraph.cavalla_reviews_feed.default
+targetEntityType: paragraph
+bundle: cavalla_reviews_feed
+mode: default
+content:
+  field_cavalla_review_feed_view:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+  field_cavalla_reviews_feed_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_reviews_feed_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

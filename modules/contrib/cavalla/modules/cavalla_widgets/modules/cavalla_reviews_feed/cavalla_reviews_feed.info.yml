@@ -1,0 +1,17 @@
+name: 'Cavalla: Reviews Feed'
+type: module
+description: 'Use Cavalla Reviews Feed to view rated critiques and evaluations.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Widgets'
+libraries:
+  - cavalla_reviews_feed/global-styling
+dependencies:
+  - node
+  - user
+  - paragraphs
+  - field_group
+  - views_base_url
+  - viewfield
+  - views
+  - cavalla_reviews

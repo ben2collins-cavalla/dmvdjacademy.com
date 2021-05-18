@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_product_feed
+label: 'Product Feed'
+icon_uuid: null
+icon_default: null
+description: 'A feed that displays a list of products available for purchase.'
+behavior_plugins: {  }

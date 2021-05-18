@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Update Hook.
+ */
+function cavalla_taxonomy_feed_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy_feed');
+}
+
+function cavalla_taxonomy_feed_8002() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy_feed');
+}
+
+function cavalla_taxonomy_feed_8003() {
+  Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.cavalla_taxonomy_feed.yml')->delete();
+}

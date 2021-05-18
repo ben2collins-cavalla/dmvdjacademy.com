@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ *
+ */
+function cavalla_accordion_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_accordion');
+}

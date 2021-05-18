@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_review_quote
+    - node.type.cavalla_reviews
+id: node.cavalla_reviews.field_cavalla_review_quote
+field_name: field_cavalla_review_quote
+entity_type: node
+bundle: cavalla_reviews
+label: Quote
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

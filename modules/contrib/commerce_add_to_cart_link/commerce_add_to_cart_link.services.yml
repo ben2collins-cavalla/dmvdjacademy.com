@@ -1,0 +1,8 @@
+services:
+  commerce_add_to_cart_link.token:
+    class: Drupal\commerce_add_to_cart_link\CartLinkToken
+    arguments:
+      - '@csrf_token'
+      - '@current_user'
+      - '@session'
+      - '@config.factory'

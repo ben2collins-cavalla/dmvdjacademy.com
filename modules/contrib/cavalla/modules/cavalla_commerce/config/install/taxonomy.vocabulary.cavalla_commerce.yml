@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Commerce Categories'
+vid: cavalla_commerce
+description: 'Products/ Merchandise related categories.'
+weight: -7

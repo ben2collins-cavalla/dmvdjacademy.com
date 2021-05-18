@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_pf_header
+    - paragraphs.paragraphs_type.cavalla_product_feed
+id: paragraph.cavalla_product_feed.field_cavalla_pf_header
+field_name: field_cavalla_pf_header
+entity_type: paragraph
+bundle: cavalla_product_feed
+label: Header
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

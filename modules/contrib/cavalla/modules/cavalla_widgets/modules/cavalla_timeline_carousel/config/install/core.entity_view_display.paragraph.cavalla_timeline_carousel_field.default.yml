@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_timeline_carousel_field.field_cavalla_tc_end_date
+    - field.field.paragraph.cavalla_timeline_carousel_field.field_cavalla_tc_event_detail
+    - field.field.paragraph.cavalla_timeline_carousel_field.field_cavalla_tc_event_title
+    - field.field.paragraph.cavalla_timeline_carousel_field.field_cavalla_tc_image
+    - field.field.paragraph.cavalla_timeline_carousel_field.field_cavalla_tc_start_date
+    - paragraphs.paragraphs_type.cavalla_timeline_carousel_field
+  module:
+    - datetime
+    - image
+    - text
+id: paragraph.cavalla_timeline_carousel_field.default
+targetEntityType: paragraph
+bundle: cavalla_timeline_carousel_field
+mode: default
+content:
+  field_cavalla_tc_end_date:
+    weight: 2
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_cavalla_tc_event_detail:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_cavalla_tc_event_title:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_tc_image:
+    weight: 6
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_cavalla_tc_start_date:
+    weight: 1
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden: {  }

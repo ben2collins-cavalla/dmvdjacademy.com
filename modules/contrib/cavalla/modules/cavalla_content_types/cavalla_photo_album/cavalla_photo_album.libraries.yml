@@ -1,0 +1,8 @@
+photoGallery:
+   version: VERSION
+   css:
+    theme:
+     css/fancybox.css: {}
+   js:
+    js/fancybox.js: {}
+    js/fancy_photo.js: {}

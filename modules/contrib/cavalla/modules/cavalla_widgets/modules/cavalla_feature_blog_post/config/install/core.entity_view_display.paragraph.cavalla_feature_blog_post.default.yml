@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_feature_blog_post.field_cavalla_fbp_header
+    - field.field.paragraph.cavalla_feature_blog_post.field_cavalla_fbp_text
+    - field.field.paragraph.cavalla_feature_blog_post.field_cavalla_feature_blog_post
+    - paragraphs.paragraphs_type.cavalla_feature_blog_post
+id: paragraph.cavalla_feature_blog_post.default
+targetEntityType: paragraph
+bundle: cavalla_feature_blog_post
+mode: default
+content:
+  field_cavalla_fbp_header:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_fbp_text:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_feature_blog_post:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

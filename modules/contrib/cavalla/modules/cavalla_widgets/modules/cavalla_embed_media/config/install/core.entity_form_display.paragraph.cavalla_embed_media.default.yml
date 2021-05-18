@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_embed_media.field_cavalla_embed_media_widget
+    - field.field.paragraph.cavalla_embed_media.field_field_cavalla_embed_media
+    - paragraphs.paragraphs_type.cavalla_embed_media
+  module:
+    - media_library
+id: paragraph.cavalla_embed_media.default
+targetEntityType: paragraph
+bundle: cavalla_embed_media
+mode: default
+content:
+  field_field_cavalla_embed_media:
+    type: media_library_widget
+    weight: 0
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_cavalla_embed_media_widget: true
+  status: true

@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_featurette.field_cavalla_featurette_cimg
+    - field.field.paragraph.cavalla_featurette.field_featurette_header
+    - field.field.paragraph.cavalla_featurette.field_featurette_hyperlink
+    - field.field.paragraph.cavalla_featurette.field_featurette_image_alignment
+    - field.field.paragraph.cavalla_featurette.field_featurette_media
+    - field.field.paragraph.cavalla_featurette.field_featurette_subtext
+    - field.field.paragraph.cavalla_featurette.field_featurettes_animation
+    - paragraphs.paragraphs_type.cavalla_featurette
+  module:
+    - link
+_core:
+  default_config_hash: krYCWlAFevMQaEEkqwV4uHV-RzaaFj-pSuy6M6hDMes
+id: paragraph.cavalla_featurette.default
+targetEntityType: paragraph
+bundle: cavalla_featurette
+mode: default
+content:
+  field_cavalla_featurette_cimg:
+    weight: 5
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_featurette_header:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_featurette_hyperlink:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_featurette_image_alignment:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_featurette_media:
+    type: entity_reference_entity_view
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_featurette_subtext:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_featurettes_animation:
+    weight: 4
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  search_api_excerpt: true

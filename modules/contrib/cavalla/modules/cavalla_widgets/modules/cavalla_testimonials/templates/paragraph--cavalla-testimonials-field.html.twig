@@ -1,0 +1,16 @@
+<div class="testimonial_bundle card">
+    <div class="testimonial">
+        {% if true in content.field_testimonial_field_media[0] %}
+            <div class="avatar">
+                {{ content.field_testimonial_field_media }}
+            </div>
+        {% endif %}
+        <div class="container text-center py-3">
+            <div class="col-12">
+                <p class="quote lead text-center">{{ content.field_testimonial_field_quote[0] }}</p>
+                <strong class="cite">{{ content.field_testimonial_field_name[0] }}</strong>
+                <small>{{ content.field_testimonial_field_job[0] }}</small>
+            </div>
+        </div>
+    </div>
+</div>

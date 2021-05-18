@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_paypal
+id: paypal_checkout
+label: Paypal
+weight: null
+plugin: paypal_checkout
+configuration:
+  payment_solution: custom_card_fields
+  client_id: AQGi_yt_TFEO2JWO0Ex6HGHd1LHZmO4hCh4WgcvSeeVuK8mc76wTcyNByE2f8KsCWxgrS-WFg3HMHj1j
+  secret: EPSxN_ueKlw5WKFplpFMfZaAryeVht2mI5Sh3ADJ7lIGaKM3i-oJe2VX33VqrRMAckk2KxcCf-rZIuFP
+  intent: authorize
+  disable_funding: {  }
+  disable_card: {  }
+  shipping_preference: get_from_file
+  update_billing_profile: true
+  update_shipping_profile: true
+  style: {  }
+  enable_on_cart: true
+  collect_billing_information: true
+  display_label: PayPal
+  mode: test
+  payment_method_types:
+    - credit_card
+conditions: {  }
+conditionOperator: AND

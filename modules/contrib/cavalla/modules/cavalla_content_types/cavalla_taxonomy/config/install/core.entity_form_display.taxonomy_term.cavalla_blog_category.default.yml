@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_hero
+    - field.field.taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_hide_himg
+    - taxonomy.vocabulary.cavalla_blog_category
+  module:
+    - field_group
+    - media_library
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_cavalla_taxonomy_hero_img:
+      children:
+        - field_cavalla_taxonomy_hero
+        - field_cavalla_taxonomy_hide_himg
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Hero Image'
+id: taxonomy_term.cavalla_blog_category.default
+targetEntityType: taxonomy_term
+bundle: cavalla_blog_category
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_cavalla_taxonomy_hero:
+    type: media_library_widget
+    weight: 8
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_cavalla_taxonomy_hide_himg:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+hidden: {  }

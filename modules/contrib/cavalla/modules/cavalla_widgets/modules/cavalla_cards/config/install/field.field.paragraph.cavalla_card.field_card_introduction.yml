@@ -1,0 +1,48 @@
+uuid: 5fd38a8d-dcb7-4274-9bed-22e7bce1c08a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_introduction
+    - paragraphs.paragraphs_type.cavalla_card
+    - paragraphs.paragraphs_type.cavalla_card_introduction
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: zv8r0SDbl38yuId_eIww9Zl7r4iLd26QCxmCk9bbdck
+id: paragraph.cavalla_card.field_card_introduction
+field_name: field_card_introduction
+entity_type: paragraph
+bundle: cavalla_card
+label: Introduction
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cavalla_card_introduction: cavalla_card_introduction
+    target_bundles_drag_drop:
+      cavalla_call_to_action:
+        weight: 7
+        enabled: false
+      cavalla_card:
+        weight: 8
+        enabled: false
+      cavalla_card_field:
+        weight: 9
+        enabled: false
+      cavalla_card_introduction:
+        enabled: true
+        weight: 10
+      cavalla_input_field:
+        weight: 11
+        enabled: false
+      cavalla_input_field_image_includ:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

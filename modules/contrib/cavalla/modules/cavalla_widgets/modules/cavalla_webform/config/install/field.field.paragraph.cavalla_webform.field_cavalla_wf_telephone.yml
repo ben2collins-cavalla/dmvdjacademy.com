@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_wf_telephone
+    - paragraphs.paragraphs_type.cavalla_webform
+  module:
+    - telephone
+id: paragraph.cavalla_webform.field_cavalla_wf_telephone
+field_name: field_cavalla_wf_telephone
+entity_type: paragraph
+bundle: cavalla_webform
+label: Telephone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

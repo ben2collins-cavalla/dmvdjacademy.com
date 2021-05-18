@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_wf_webform
+    - paragraphs.paragraphs_type.cavalla_webform
+  module:
+    - webform
+id: paragraph.cavalla_webform.field_cavalla_wf_webform
+field_name: field_cavalla_wf_webform
+entity_type: paragraph
+bundle: cavalla_webform
+label: Webform
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+    target_uuid: a93a5b34-7012-4f52-8c71-341c60d9a163
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

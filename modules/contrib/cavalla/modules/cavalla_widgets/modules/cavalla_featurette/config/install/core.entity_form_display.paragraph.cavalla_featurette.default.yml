@@ -1,0 +1,136 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_featurette.field_cavalla_featurette_cimg
+    - field.field.paragraph.cavalla_featurette.field_featurette_header
+    - field.field.paragraph.cavalla_featurette.field_featurette_hyperlink
+    - field.field.paragraph.cavalla_featurette.field_featurette_image_alignment
+    - field.field.paragraph.cavalla_featurette.field_featurette_media
+    - field.field.paragraph.cavalla_featurette.field_featurette_subtext
+    - field.field.paragraph.cavalla_featurette.field_featurettes_animation
+    - paragraphs.paragraphs_type.cavalla_featurette
+  module:
+    - field_group
+    - link
+    - media_library
+third_party_settings:
+  field_group:
+    group_featurettes_introduction:
+      children:
+        - field_featurette_header
+        - field_featurette_subtext
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Introduction
+      region: content
+    group_featurettes_image:
+      children:
+        - field_featurette_media
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Image
+      region: content
+    group_featurettes_hyperlink:
+      children:
+        - field_featurette_hyperlink
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Hyperlink
+      region: content
+    group_cavalla_featurette_do:
+      children:
+        - field_featurette_image_alignment
+        - field_featurettes_animation
+        - field_cavalla_featurette_cimg
+      parent_name: ''
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Display Options'
+_core:
+  default_config_hash: 6YpE_Wpd1Tl5itNjOzm8qxYPoWJ8aAapXCu0Z1E2QU4
+id: paragraph.cavalla_featurette.default
+targetEntityType: paragraph
+bundle: cavalla_featurette
+mode: default
+content:
+  field_cavalla_featurette_cimg:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_featurette_header:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_featurette_hyperlink:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_featurette_image_alignment:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_featurette_media:
+    type: media_library_widget
+    weight: 8
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_featurette_subtext:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_featurettes_animation:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

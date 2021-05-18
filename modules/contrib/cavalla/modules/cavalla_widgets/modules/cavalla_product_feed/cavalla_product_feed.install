@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * cavalla_product_feed install file.
+ */
+
+/**
+ *
+ */
+function cavalla_product_feed_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_product_feed');
+}

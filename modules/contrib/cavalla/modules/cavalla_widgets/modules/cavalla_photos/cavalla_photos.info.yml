@@ -1,0 +1,11 @@
+name: 'Cavalla: Photos'
+type: module
+description: 'Provides a paragraphs bundle for adding Photos Elements to site.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Widgets'
+dependencies:
+  - menu_ui
+  - paragraphs
+  - field_group
+

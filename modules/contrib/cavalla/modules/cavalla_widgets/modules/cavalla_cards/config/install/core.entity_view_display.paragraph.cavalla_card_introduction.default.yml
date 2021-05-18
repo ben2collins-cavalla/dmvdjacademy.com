@@ -1,0 +1,31 @@
+uuid: 84c46023-92f2-4155-a2d0-fdc589318040
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_card_introduction.field_card_introduction_header
+    - field.field.paragraph.cavalla_card_introduction.field_card_introduction_subtext
+    - paragraphs.paragraphs_type.cavalla_card_introduction
+_core:
+  default_config_hash: Oex-_Ozz_9ctdHgGWFnkv6z2smYvgc-u_RMLbFtzc7s
+id: paragraph.cavalla_card_introduction.default
+targetEntityType: paragraph
+bundle: cavalla_card_introduction
+mode: default
+content:
+  field_card_introduction_header:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_card_introduction_subtext:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_cavalla_taxonomy_hide_himg
+    - taxonomy.vocabulary.cavalla_blog_tags
+id: taxonomy_term.cavalla_blog_tags.field_cavalla_taxonomy_hide_himg
+field_name: field_cavalla_taxonomy_hide_himg
+entity_type: taxonomy_term
+bundle: cavalla_blog_tags
+label: 'Hide Hero Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,21 @@
+name: 'Cavalla: Blog'
+type: module
+description: 'Use Cavalla Blog for time-sensitive content like news, press releases or blog posts.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Content Type'
+dependencies:
+  - cavalla_accordion
+  - cavalla_basic_html
+  - cavalla_call_to_action
+  - cavalla_cards
+  - cavalla_embed_media
+  - cavalla_featurette
+  - cavalla_testimonials
+  - comment
+  - image
+  - viewfield
+  - views_base_url
+  - statistics
+  - menu_ui
+  - node

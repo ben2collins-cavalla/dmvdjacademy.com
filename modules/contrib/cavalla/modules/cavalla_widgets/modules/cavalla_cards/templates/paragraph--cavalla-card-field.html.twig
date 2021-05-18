@@ -1,0 +1,21 @@
+<div class="card" >
+    {{ content.field_card_field_image }}
+    <div class="card-body">
+
+        {%  if true in content.field_card_field_header_text[0] %}
+        <h5 class="card-title card__head">{{ content.field_card_field_header_text[0] }}</h5>
+        {% endif %}
+
+        {%  if true in content.field_card_field_sub_text[0] %}
+        <p class="card-text">{{ content.field_card_field_sub_text[0] }}</p>
+        {% endif %}
+
+        <section class="text-center">
+        {% for i in 0..content.field_card_field_link|length %}
+            {% if content.field_card_field_link[i] is not null %}
+            <a class="btn btn-dark" href="{{ content.field_card_field_link[i]['#url'] }}">{{ content.field_card_field_link[i]['#title'] }}&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+            {% endif %}
+        {% endfor %}
+        </section>
+    </div>
+</div>

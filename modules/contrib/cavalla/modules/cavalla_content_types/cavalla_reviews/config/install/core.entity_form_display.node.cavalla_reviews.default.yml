@@ -1,0 +1,170 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cavalla_reviews.field_cavalla_review_fn
+    - field.field.node.cavalla_reviews.field_cavalla_review_image
+    - field.field.node.cavalla_reviews.field_cavalla_review_ln
+    - field.field.node.cavalla_reviews.field_cavalla_review_quote
+    - field.field.node.cavalla_reviews.field_cavalla_review_rating
+    - image.style.thumbnail
+    - node.type.cavalla_reviews
+  module:
+    - field_group
+    - image
+    - path
+third_party_settings:
+  field_group:
+    group_cavalla_review_name:
+      children:
+        - field_cavalla_review_fn
+        - field_cavalla_review_ln
+      parent_name: ''
+      weight: 7
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Name
+    group_cavalla_review_quote:
+      children:
+        - field_cavalla_review_quote
+      parent_name: ''
+      weight: 9
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Quote
+    group_cavalla_review_rating:
+      children:
+        - field_cavalla_review_rating
+      parent_name: ''
+      weight: 10
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Rates
+    group_cavalla_review_image:
+      children:
+        - field_cavalla_review_image
+      parent_name: ''
+      weight: 8
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Image
+id: node.cavalla_reviews.default
+targetEntityType: node
+bundle: cavalla_reviews
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cavalla_review_fn:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_review_image:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_cavalla_review_ln:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_review_quote:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_review_rating:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,8 @@
+name: 'Cavalla: Timeline Carousel'
+type: module
+description: 'Use this widget to create timelines that include full background image carousels.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Widget'
+dependencies:
+  - paragraphs

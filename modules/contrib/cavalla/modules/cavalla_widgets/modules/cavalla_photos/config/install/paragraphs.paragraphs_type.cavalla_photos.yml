@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_photos
+label: 'Cavalla Photos'
+icon_uuid: null
+description: 'Provides a paragraphs bundle for adding Photos Elements to site.'
+behavior_plugins: {  }

@@ -1,0 +1,124 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_animation
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_header
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_hyperlink
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_text
+    - field.field.paragraph.cavalla_testimonials.field_testimonial_widget
+    - paragraphs.paragraphs_type.cavalla_testimonials
+  module:
+    - field_group
+    - link
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_testimonial_introduction:
+      children:
+        - field_testimonial_header
+        - field_testimonial_text
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Introduction
+      region: content
+    group_testimonial_hyperlink:
+      children:
+        - field_testimonial_hyperlink
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Hyperlink
+      region: content
+    group_testimonial_widget:
+      children:
+        - field_testimonial_widget
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        description: ''
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: Testimonials
+      region: content
+    group_cavalla_animation:
+      children:
+        - field_testimonial_animation
+      parent_name: ''
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Animation
+_core:
+  default_config_hash: opsKd10XnnmNuU6xCihGogHqIkBXct43biuZl0GaukA
+id: paragraph.cavalla_testimonials.default
+targetEntityType: paragraph
+bundle: cavalla_testimonials
+mode: default
+content:
+  field_testimonial_animation:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_testimonial_header:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_testimonial_hyperlink:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_testimonial_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_testimonial_widget:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: cavalla_testimonials_field
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

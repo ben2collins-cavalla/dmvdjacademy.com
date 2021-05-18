@@ -1,0 +1,46 @@
+<div class="photoshelter-feed py-5">
+  <div class="wrapper container">
+    <div class="row auto-clear">
+      {%  if true in content.field_cavalla_photos_title[0] %}
+        <section class="col-md-12">
+          <h1>{{ content.field_cavalla_photos_title[0] }}</h1>
+          <p>{{ content.field_cavalla_photos_text[0] }}</p>
+        </section>
+      {% endif %}
+      <section class="col-md-12">
+        {% for i in 0..content.field_cavalla_photos_images|length %}
+          {% if content.field_cavalla_photos_images[i] is not null %}
+
+          <div class="photoshelter_photo col-md-4 col-sm-6 col-xs-12" >
+            <a href="{{ content.field_cavalla_photos_images[i] }}" data-fancybox="images">
+              <img src="{{ content.field_cavalla_photos_images[i] }}"   style="width:100%;"/>
+            </a>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </section>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="photoshelter_imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+        	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <img id="image-gallery-image" src="" class="photoshelter_imagepreview" style="width: 100%;" >
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="show-previous-image">Previous</button>
+            </div>
+
+            <div class="col-md-8 text-justify" id="image-gallery-caption"></div>
+
+            <div class="col-md-2">
+                <button type="button" id="show-next-image" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: default_products
+label: 'Default Products'
+orderItemType: default
+generateTitle: true
+traits: {  }
+locked: false

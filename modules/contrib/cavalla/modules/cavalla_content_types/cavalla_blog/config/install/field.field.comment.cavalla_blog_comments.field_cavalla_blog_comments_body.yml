@@ -1,0 +1,19 @@
+uuid: 131afc4c-e899-4884-8125-a8e3b00fc29f
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.cavalla_blog_comments
+    - field.storage.comment.field_cavalla_blog_comments_body
+id: comment.cavalla_blog_comments.field_cavalla_blog_comments_body
+field_name: field_cavalla_blog_comments_body
+entity_type: comment
+bundle: cavalla_blog_comments
+label: Comment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

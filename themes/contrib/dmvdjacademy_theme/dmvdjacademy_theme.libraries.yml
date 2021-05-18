@@ -1,0 +1,9 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      src/css/style.css : {}
+  js:
+    src/js/script.js: {}
+  dependencies:
+    - core/jquery

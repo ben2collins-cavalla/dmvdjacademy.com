@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_cavalla_taxonomy_hero
+    - media.type.image
+    - taxonomy.vocabulary.cavalla_blog_category
+id: taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_hero
+field_name: field_cavalla_taxonomy_hero
+entity_type: taxonomy_term
+bundle: cavalla_blog_category
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

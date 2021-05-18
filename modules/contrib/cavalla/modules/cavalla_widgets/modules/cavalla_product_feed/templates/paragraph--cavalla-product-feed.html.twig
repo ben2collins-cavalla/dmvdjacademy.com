@@ -1,0 +1,16 @@
+<section class="product_feed_bundle" >
+    <section class="container">
+        <section class="product_feed_introduction">
+            <h1>{{ content.field_cavalla_pf_header[0] }}</h1>
+            <p class="lead-in">{{ content.field_cavalla_pf_text[0] }}</p>
+        </section>
+        <section class="card-deck my-4">
+        {{ product_feed }}
+        </section>
+        {% if content.field_cavalla_pf_hyperlink[0] is not null %}
+        <section class="hyperlink">
+            <a class="btn btn-dark" href="{{ content.field_cavalla_pf_hyperlink[0]['#url'] }}">{{ content.field_cavalla_pf_hyperlink[0]['#title'] }}&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+        </section>
+        {% endif %}
+    </section>
+</section>

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_wf_map
+    - paragraphs.paragraphs_type.cavalla_webform
+  module:
+    - text
+id: paragraph.cavalla_webform.field_cavalla_wf_map
+field_name: field_cavalla_wf_map
+entity_type: paragraph
+bundle: cavalla_webform
+label: 'Embed Map'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_basic_html.field_cavalla_bh_header
+    - field.field.paragraph.cavalla_basic_html.field_cavalla_bh_text
+    - field.field.paragraph.cavalla_basic_html.field_cavalla_bh_wysiwyg
+    - paragraphs.paragraphs_type.cavalla_basic_html
+  module:
+    - text
+id: paragraph.cavalla_basic_html.default
+targetEntityType: paragraph
+bundle: cavalla_basic_html
+mode: default
+content:
+  field_cavalla_bh_header:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_bh_text:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_bh_wysiwyg:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

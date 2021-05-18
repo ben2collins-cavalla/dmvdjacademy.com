@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_bh_wysiwyg
+    - paragraphs.paragraphs_type.cavalla_basic_html
+  module:
+    - text
+id: paragraph.cavalla_basic_html.field_cavalla_bh_wysiwyg
+field_name: field_cavalla_bh_wysiwyg
+entity_type: paragraph
+bundle: cavalla_basic_html
+label: 'Text Editor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

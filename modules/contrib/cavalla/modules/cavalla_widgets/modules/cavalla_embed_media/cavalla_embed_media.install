@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_cards install file.
+ */
+
+/**
+ * Code Update.
+ */
+function cavalla_embed_media_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_embed_media');
+}

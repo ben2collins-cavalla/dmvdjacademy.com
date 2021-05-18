@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_blog_reccomened_post
+label: 'Reccomened Post'
+icon_uuid: null
+icon_default: null
+description: "A widget for displaying a list of recommended blog post\t\r\n"
+behavior_plugins: {  }

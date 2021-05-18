@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the dmvdjacademy_theme theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\node\Entity\Node;
+use Drupal\media\Entity\Media;
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\block\Entity\Block;
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Link;
+use \Drupal\taxonomy\Entity\Term;
+
+
+
+function dmvdjacademy_theme_preprocess_menu__main(&$variables){
+    $variables['attributes']['class'][] = 'navbar-nav';
+}
+
+function dmvdjacademy_theme_preprocess_menu_main__link(&$variables) {
+    $variables['attributes']['class'][] = 'nav-item';
+}
+
+function dmvdjacademy_theme_preprocess_menu__featured_menu_link(&$variables) {
+    $variables['attributes']['class'][] = 'nav-item';
+}
+

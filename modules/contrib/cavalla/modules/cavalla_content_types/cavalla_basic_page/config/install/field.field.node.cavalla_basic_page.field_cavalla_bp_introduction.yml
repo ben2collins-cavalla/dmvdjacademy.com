@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_bp_introduction
+    - node.type.cavalla_basic_page
+id: node.cavalla_basic_page.field_cavalla_bp_introduction
+field_name: field_cavalla_bp_introduction
+entity_type: node
+bundle: cavalla_basic_page
+label: 'Meta Description'
+description: "A snippet of text that describes a page's content. Meta Descriptions are essentially little content descriptors that help tell search engines what a web page is about."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

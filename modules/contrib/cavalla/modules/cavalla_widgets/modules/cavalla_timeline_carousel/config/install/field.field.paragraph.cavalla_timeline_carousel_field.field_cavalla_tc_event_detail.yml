@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_tc_event_detail
+    - paragraphs.paragraphs_type.cavalla_timeline_carousel_field
+  module:
+    - text
+id: paragraph.cavalla_timeline_carousel_field.field_cavalla_tc_event_detail
+field_name: field_cavalla_tc_event_detail
+entity_type: paragraph
+bundle: cavalla_timeline_carousel_field
+label: 'Event Details'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

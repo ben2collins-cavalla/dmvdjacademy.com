@@ -1,0 +1,57 @@
+<footer class="page-footer">
+    <div class="footer-menus navbar-dark bg-dark">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-4 col-sm-12 left_side">
+           <address class="grey-text text-lighten-4">
+            {{ address_organization_name }}<br/>
+            {{ address_street }}, <br/>
+            {{ address_city_state_zipcode }}<br/>
+            {{ address_phone }}<br/>
+            {{ address_email }}<br/>
+           </address>   
+         </div>
+         <div class="col-md-8 col-sm-12 right_side">
+         <div class="col-md-4 col-sm-12 float-left">
+           {{ page.footer_first}}
+         </div>
+         <div class="col-md-4 col-sm-12 float-left">
+           {{ page.footer_second}}
+         </div>
+         <div class="col-md-4 col-sm-12 float-left">
+          <div class=" col-12 social-links">
+
+            {% if facebook_link %}
+            <a href="{{ facebook_link }}" class="fa fa-facebook" target="_blank"></a>
+            {% endif %}
+            
+            {% if twitter_link %}
+            <a href="{{ twitter_link }}" class="fa fa-twitter" target="_blank"></a>
+            {% endif %}
+
+            {% if instagram_link %}
+            <a href="{{ instagram_link }}" class="fa fa-instagram" target="_blank"></a>
+            {% endif %}
+
+            {% if linkedin_link %}
+            <a href="{{ linkedin_link }}" class="fa fa-linkedin" target="_blank"></a>
+            {% endif %}
+
+            {% if youtube_link %}
+            <a href="{{ youtube_link }}" class="fa fa-youtube" target="_blank"></a>
+            {% endif %}
+
+          </div>
+          <div class="col-12"></div>
+        </div>
+       </div>
+     </div>
+    </div>
+    </div>
+     <div class="footer-copyright ">
+       <div class="container">
+       <div class="copyright float-left"> ©{{ "now"|date("Y") }} Copyright&nbsp;{{ address_organization_name }}.</div>     
+       <aside class="float-right legal"> {{ page.footer_third}}</aside>
+       </div>
+     </div>
+   </footer>

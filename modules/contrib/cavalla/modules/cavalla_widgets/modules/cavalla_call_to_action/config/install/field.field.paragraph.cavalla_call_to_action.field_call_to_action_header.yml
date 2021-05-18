@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_call_to_action_header
+    - paragraphs.paragraphs_type.cavalla_call_to_action
+id: paragraph.cavalla_call_to_action.field_call_to_action_header
+field_name: field_call_to_action_header
+entity_type: paragraph
+bundle: cavalla_call_to_action
+label: Header
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

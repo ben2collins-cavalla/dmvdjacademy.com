@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_embed_media
+label: 'Embed Media'
+icon_uuid: null
+icon_default: null
+description: 'Provides a paragraph bundle for adding media embeds for Soundcloud,Youtube,Vimeo,Facebook and more.'
+behavior_plugins: {  }

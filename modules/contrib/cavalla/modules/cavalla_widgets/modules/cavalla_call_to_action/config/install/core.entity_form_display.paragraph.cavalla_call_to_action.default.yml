@@ -1,0 +1,160 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_animation
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_header
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_hyperlink
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_image
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_media
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_subtext
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_video
+    - field.field.paragraph.cavalla_call_to_action.field_cavalla_call_to_action_vw
+    - field.field.paragraph.cavalla_call_to_action.field_cavalla_cta_logo
+    - field.field.paragraph.cavalla_call_to_action.field_cavalla_cta_overlay
+    - paragraphs.paragraphs_type.cavalla_call_to_action
+  module:
+    - field_group
+    - link
+    - media_library
+third_party_settings:
+  field_group:
+    group_call_to_action_introductio:
+      children:
+        - field_call_to_action_header
+        - field_call_to_action_subtext
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: Introduction
+      region: content
+    group_call_to_action_media:
+      children:
+        - field_call_to_action_media
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: Media
+      region: content
+    group_call_to_action_hyperlink:
+      children:
+        - field_call_to_action_hyperlink
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: Hyperlink(s)
+      region: content
+    group_cavalla_call_to_action_vw:
+      children:
+        - field_cavalla_call_to_action_vw
+        - field_cavalla_cta_overlay
+        - field_cavalla_cta_logo
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Selecting this option will set the max-height of the Call to Action section to 600px.'
+        open: false
+        required_fields: true
+      label: Display
+      region: content
+    group_cavalla_call_to_action_eff:
+      children:
+        - field_call_to_action_animation
+      parent_name: ''
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Effects
+id: paragraph.cavalla_call_to_action.default
+targetEntityType: paragraph
+bundle: cavalla_call_to_action
+mode: default
+content:
+  field_call_to_action_animation:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_call_to_action_header:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_call_to_action_hyperlink:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_call_to_action_media:
+    weight: 5
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
+  field_call_to_action_subtext:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_call_to_action_vw:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cavalla_cta_logo:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cavalla_cta_overlay:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  field_call_to_action_image: true
+  field_call_to_action_video: true
+  status: true

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_photo_album_hide
+    - node.type.cavalla_photo_album
+id: node.cavalla_photo_album.field_cavalla_photo_album_hide
+field_name: field_cavalla_photo_album_hide
+entity_type: node
+bundle: cavalla_photo_album
+label: 'Hide Hero Image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

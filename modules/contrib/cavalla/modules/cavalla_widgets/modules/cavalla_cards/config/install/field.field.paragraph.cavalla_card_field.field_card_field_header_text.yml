@@ -1,0 +1,21 @@
+uuid: f753cf7a-0d96-4ef6-b1dc-899c8698d54b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card_field_header_text
+    - paragraphs.paragraphs_type.cavalla_card_field
+_core:
+  default_config_hash: BfaZ4nuoSd7CZfgbf8HtgfNrt8mj2ROojSSA7neb8pQ
+id: paragraph.cavalla_card_field.field_card_field_header_text
+field_name: field_card_field_header_text
+entity_type: paragraph
+bundle: cavalla_card_field
+label: Header
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

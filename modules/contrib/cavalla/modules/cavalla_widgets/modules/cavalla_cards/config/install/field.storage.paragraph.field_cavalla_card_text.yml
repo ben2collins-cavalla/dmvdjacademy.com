@@ -1,0 +1,19 @@
+uuid: 633e5de2-77a7-44ff-b2f2-566e77447a24
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_cavalla_card_text
+field_name: field_cavalla_card_text
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

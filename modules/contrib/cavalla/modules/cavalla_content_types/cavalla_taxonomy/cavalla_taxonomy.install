@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ *
+ */
+function cavalla_taxonomy_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy');
+}
+
+function cavalla_taxonomy_update_8002() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy');
+}
+
+function cavalla_taxonomy_update_8003() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy');
+}
+
+function cavalla_taxonomy_update_8004() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_taxonomy');
+  Drupal::configFactory()->getEditable('field.field.taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_hero_img')->delete();
+  Drupal::configFactory()->getEditable('field.field.taxonomy_term.cavalla_blog_tags.field_cavalla_taxonomy_hero_img')->delete();
+  Drupal::configFactory()->getEditable('field.storage.taxonomy_term.field_cavalla_taxonomy_hero_img')->delete();
+
+}
+

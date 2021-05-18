@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_photo_album_feed.field_cavalla_photo_album_feeds
+    - paragraphs.paragraphs_type.cavalla_photo_album_feed
+  module:
+    - viewfield
+id: paragraph.cavalla_photo_album_feed.default
+targetEntityType: paragraph
+bundle: cavalla_photo_album_feed
+mode: default
+content:
+  field_cavalla_photo_album_feeds:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+hidden:
+  created: true
+  status: true

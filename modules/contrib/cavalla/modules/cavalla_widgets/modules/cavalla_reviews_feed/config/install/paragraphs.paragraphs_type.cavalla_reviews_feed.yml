@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_reviews_feed
+label: 'Cavalla Reviews Feed'
+icon_uuid: null
+description: 'Use Cavalla Reviews Feed to view rated critiques and evaluations.'
+behavior_plugins: {  }

@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Update Hook.
+ */
+function cavalla_reviews_feed_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_reviews_feed');
+}

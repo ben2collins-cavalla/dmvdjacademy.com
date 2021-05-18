@@ -1,0 +1,21 @@
+uuid: 8c14ae05-90ab-4dcd-b6fe-44678d36b8e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: FCHmpzMcN1FYaGBpu6jZ4ti8rt7MYrltYLHemVy0nzs
+id: paragraph.field_testimonial_hyperlink
+field_name: field_testimonial_hyperlink
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ *
+ */
+function cavalla_basic_html_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_basic_html');
+}

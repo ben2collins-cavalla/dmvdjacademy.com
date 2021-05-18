@@ -1,0 +1,23 @@
+uuid: 53605290-7a53-45cd-9b16-f96bc62dbe0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: js8TagXznEo2lFxb5aP6_M_jAvbGa2YNYYn2ZRoJIfo
+id: paragraph.field_card_introduction_header
+field_name: field_card_introduction_header
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

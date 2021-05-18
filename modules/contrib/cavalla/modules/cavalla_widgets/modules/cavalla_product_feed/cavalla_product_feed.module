@@ -1,0 +1,101 @@
+<?php
+
+/**
+ * @file
+ * cavalla_product_feed module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Views;
+
+
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_product_feed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_product_feed':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+
+/**
+ * Implements hook_theme().
+ * Lets us define our node templates in this module.
+ */
+function cavalla_product_feed_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_product_feed' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+function cavalla_product_feed_preprocess_paragraph(array &$variables) {
+  // Paragraph array.
+  $paragraph = $variables['elements']['#paragraph'];
+  // Term id for selected taxonomy value.
+  $category = ($paragraph->hasField('field_cavalla_pf_category')  ? $paragraph->field_cavalla_pf_category->getValue()[0]['target_id']: NULL);
+  $tag =  ($paragraph->hasField('field_cavalla_pf_tags')  ? $paragraph->field_cavalla_pf_tags->getValue()[0]['target_id']: NULL);
+
+  $product_count = 10;
+  if ($paragraph->field_cavalla_pf_product_count->value) {
+      $product_count = $paragraph->field_cavalla_pf_product_count->value;
+  }
+
+  $variables['product_feed'] = views_embed_view('cavalla_product_feed', 'product_feed',$tag,$category,$product_count);
+}
+
+
+
+/**
+ * Implements hook views_pre_view().
+ * Display sets number of articles.
+ */
+
+function cavalla_product_feed_views_pre_view(ViewExecutable $view, $display_id, array &$args){
+  if ($view->id() == 'cavalla_product_feed' && $view->current_display == 'product_feed') {
+    $view->setItemsPerPage($args[2]);
+    // remove pager
+    $pager = $view->display_handler->getOption('pager');
+    $filter = $view->display_handler->getOption('filters');
+    $pager['type'] = 'some';
+    $view->display_handler->setOption('pager', $pager);
+
+
+  $filter['field_cavalla_commerce_category_target_id'] = array(
+      'id' => 'field_cavalla_commerce_category_target_id',
+      'table'=> 'commerce_product__field_cavalla_commerce_category',
+      'field'=> 'field_cavalla_commerce_category_target_id',
+      'relationship' => 'none',
+      'group_type' => 'group',
+      'ui_name' => '',
+      'operator' => 'or',
+      'value'=> array(
+        '0' => $args[1],
+        ),
+      'group' => "1",
+      "exposed" => FALSE,
+      "is_grouped" => FALSE
+    );
+
+    $view->display_handler->setOption('filters', $filter);
+  }
+}

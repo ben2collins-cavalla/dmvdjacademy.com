@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_photos_title
+    - paragraphs.paragraphs_type.cavalla_photos
+id: paragraph.cavalla_photos.field_cavalla_photos_title
+field_name: field_cavalla_photos_title
+entity_type: paragraph
+bundle: cavalla_photos
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

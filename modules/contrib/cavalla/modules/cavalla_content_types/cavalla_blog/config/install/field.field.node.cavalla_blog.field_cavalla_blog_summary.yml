@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_blog_summary
+    - node.type.cavalla_blog
+id: node.cavalla_blog.field_cavalla_blog_summary
+field_name: field_cavalla_blog_summary
+entity_type: node
+bundle: cavalla_blog
+label: Summary
+description: "A snippet of text that describes a page's content. This text will also be used as the page's meta description. Meta Description are essentially little content descriptors that help tell search engines what a web page is about."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

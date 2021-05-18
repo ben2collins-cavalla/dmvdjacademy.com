@@ -1,0 +1,62 @@
+<section class="w-100 d-md-table featurette_bundle" aria-label="Featurettes" data-animate-featurette="{{ content.field_featurettes_animation[0] }}">
+	<section class="featurettes d-md-table-cell align-middle">
+		<section class="container">
+			<div class="row h-100 ">
+			{%  if float_left == 1 %}
+		   		<div class="col-lg-6 col-md-6 featurettes_text my-auto d-md-table-cell align-middle">
+			  		<aside class="featurette text-center text-md-left">
+					  {%  if true in content.field_featurette_header[0] %}
+					  <h1 class="featurette-heading">{{ content.field_featurette_header[0] }}</h1>
+					  {% endif %}
+
+					  {%  if true in content.field_featurette_subtext[0] %}
+					  <p class="lead">{{ content.field_featurette_subtext[0] }}</p>
+					  {% endif %}
+
+					{%  if true in content.field_featurette_hyperlink[0] %}
+						<section class="hyperlinks">
+					  	{% for i in 0..content.field_featurette_hyperlink|length %}
+            				{% if content.field_featurette_hyperlink[i] is not null %}
+								<a class="btn btn-dark" href="{{ content.field_featurette_hyperlink[i]['#url'] }}">{{ content.field_featurette_hyperlink[i]['#title'] }}&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+							{% endif %}
+						{% endfor %}
+						</section>
+					{% endif %}
+
+					</aside>
+				</div>
+		   		<div class="col-lg-6 col-md-6 featurettes_image p-3 d-md-table-cell align-middle {{ circular_image}}">
+				   {{ content.field_featurette_media }}
+				</div>
+		   {% endif %}
+
+			{%  if float_left == 0 %}
+			<div class="col-lg-6 col-md-6 featurettes_image p-3 {{ circular_image}}">
+				{{ content.field_featurette_media }}
+			</div>
+			 <div class="col-lg-6 col-md-6 featurettes_text my-auto ">
+			 	<aside class="featurette text-center text-md-left">
+					{%  if true in content.field_featurette_header[0] %}
+					<h1 class="featurette-heading">{{ content.field_featurette_header[0] }}</h1>
+					{% endif %}
+
+					{%  if true in content.field_featurette_subtext[0] %}
+					<p class="lead">{{ content.field_featurette_subtext[0] }}</p>
+					{% endif %}
+
+					{%  if true in content.field_featurette_hyperlink[0] %}
+						<section class="hyperlinks">
+					  	{% for i in 0..content.field_featurette_hyperlink|length %}
+            				{% if content.field_featurette_hyperlink[i] is not null %}
+								<a class="btn btn-dark" href="{{ content.field_featurette_hyperlink[i]['#url'] }}">{{ content.field_featurette_hyperlink[i]['#title'] }}&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+							{% endif %}
+						{% endfor %}
+						</section>
+					{% endif %}
+				</aside>
+			 </div>
+		   {% endif %}
+		  </div>
+		</section>
+	</section>
+</section>

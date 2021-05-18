@@ -1,0 +1,18 @@
+name: 'Cavalla: Cavalla Base Module'
+type: module
+description: .
+version: '8.x-1.0'
+core: '8.x'
+
+
+package: Cavalla Content Type
+dependencies:
+  - easy_install
+  - media_library
+  - cavalla_basic_page
+  - cavalla_blog
+  - cavalla_blog_feeds
+  - cavalla_taxonomy
+  - cavalla_photo_album
+  - cavalla_reviews
+  - cavalla_commerce

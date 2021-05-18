@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_cta_logo
+    - paragraphs.paragraphs_type.cavalla_call_to_action
+id: paragraph.cavalla_call_to_action.field_cavalla_cta_logo
+field_name: field_cavalla_cta_logo
+entity_type: paragraph
+bundle: cavalla_call_to_action
+label: 'Display Logo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

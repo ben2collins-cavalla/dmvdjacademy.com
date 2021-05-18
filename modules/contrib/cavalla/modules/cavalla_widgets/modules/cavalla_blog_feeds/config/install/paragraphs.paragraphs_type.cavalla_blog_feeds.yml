@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_blog_feeds
+label: 'Blog Feeds'
+icon_uuid: null
+icon_default: null
+description: "Use the Cavalla Blog Feed to display a list of Cavalla Blogs organized by either category or tag.\t\r\n"
+behavior_plugins: {  }

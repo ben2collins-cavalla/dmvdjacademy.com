@@ -1,0 +1,21 @@
+uuid: 73a6ba84-cf80-4467-9f97-aec960e607a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonial_text
+    - paragraphs.paragraphs_type.cavalla_testimonials
+_core:
+  default_config_hash: ocrApBLMibLyv44mghNVQoeYLQIxev4rFDUer9CIHgQ
+id: paragraph.cavalla_testimonials.field_testimonial_text
+field_name: field_testimonial_text
+entity_type: paragraph
+bundle: cavalla_testimonials
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

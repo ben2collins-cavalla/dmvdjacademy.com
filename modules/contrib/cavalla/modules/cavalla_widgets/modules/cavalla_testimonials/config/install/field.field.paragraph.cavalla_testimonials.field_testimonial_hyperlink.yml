@@ -1,0 +1,25 @@
+uuid: ca2bde60-3e1c-4fbd-a420-0c939d5c08b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonial_hyperlink
+    - paragraphs.paragraphs_type.cavalla_testimonials
+  module:
+    - link
+_core:
+  default_config_hash: tmE-Y0xDWoLY2nLsL5ixw6-ILhzestQSl9XPH4xl3Xo
+id: paragraph.cavalla_testimonials.field_testimonial_hyperlink
+field_name: field_testimonial_hyperlink
+entity_type: paragraph
+bundle: cavalla_testimonials
+label: Hyperlink(s)
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

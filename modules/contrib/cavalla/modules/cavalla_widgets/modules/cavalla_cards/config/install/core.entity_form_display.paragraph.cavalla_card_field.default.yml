@@ -1,0 +1,57 @@
+uuid: 042bdbdd-229c-4f40-a409-8d59f7cb59bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_card_field.field_card_field_header_text
+    - field.field.paragraph.cavalla_card_field.field_card_field_image
+    - field.field.paragraph.cavalla_card_field.field_card_field_link
+    - field.field.paragraph.cavalla_card_field.field_card_field_sub_text
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.cavalla_card_field
+  module:
+    - image
+    - link
+_core:
+  default_config_hash: bdAFIKGXzi2T-58uw9GS7C_PD-kzFJdZ18KB097amiU
+id: paragraph.cavalla_card_field.default
+targetEntityType: paragraph
+bundle: cavalla_card_field
+mode: default
+content:
+  field_card_field_header_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_card_field_image:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_card_field_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_card_field_sub_text:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,159 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_review_scorecard module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\Views;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_reviews_feed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_review_scorecard':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our paragraphs templates in this module.
+ */
+function cavalla_reviews_feed_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_reviews_feed' => [
+      'base hook' => 'paragraph',
+    ],
+    'viewfield_item__cavalla_review_feed' => [
+      'base hook' => 'viewfield_item',
+    ],
+    'views_view__cavalla_review_feed' => [
+      'base hook' => 'views_view',
+    ],
+    'views_view_unformatted__cavalla_review_feed' => [
+      'base hook' => 'views_view_unformatted',
+    ],
+    'views_view_fields__cavalla_review_feed' => [
+      'base hook' => 'views_view_fields',
+    ],
+    'viewfield__paragraph__field_cavalla_review_feed_view' => [
+      'base hook' => 'viewfield',
+    ],
+    'pager__cavalla_review_feed' => [
+      'base hook' => 'pager',
+    ],
+    'container__cavalla_review_feed' => [
+      'base hook' => 'container',
+    ],
+  ];
+
+}
+
+/**
+ *
+ */
+function cavalla_reviews_feed_preprocess_pager__cavalla_review_feed(&$variables) {
+  $currentPath = getBaseUrl();
+  $variables['currentPath'] = $currentPath;
+}
+
+/**
+ *
+ */
+function cavalla_reviews_preprocess_paragraph__cavalla_reviews_feed(&$variables) {
+
+  $total_results = view_result_total_votes('cavalla_review_feed', 'results_count');
+  $variables['total_results'] = $total_results;
+
+  // Five Star.
+  $five_star = view_result_total_votes('cavalla_review_feed', 'five_star');
+  $variables['five_star'] = $five_star;
+  $variables['five_star_width'] = calculate($five_star);
+
+  // Four Star.
+  $four_star = view_result_total_votes('cavalla_review_feed', 'four_star');
+  $variables['four_star'] = $four_star;
+  $variables['four_star_width'] = calculate($four_star);
+
+  // Three Star.
+  $three_star = view_result_total_votes('cavalla_review_feed', 'three_star');
+  $variables['three_star'] = $three_star;
+  $variables['three_star_width'] = calculate($three_star);
+
+  // Two Star.
+  $two_star = view_result_total_votes('cavalla_review_feed', 'two_star');
+  $variables['two_star'] = $two_star;
+  $variables['two_star_width'] = calculate($two_star);
+
+  // One Star.
+  $one_star = view_result_total_votes('cavalla_review_feed', 'one_star');
+  $variables['one_star'] = $one_star;
+  $variables['one_star_width'] = calculate($one_star);
+
+  $arr = [$one_star, $two_star, $three_star, $four_star, $five_star];
+  // Total User Average.
+  $variables['total_user_average'] = user_average_calculation($arr, $total_results);
+  $variables['total_user_average_class'] = round(user_average_calculation($arr, $total_results), 0, PHP_ROUND_HALF_DOWN);
+
+}
+
+/**
+ *
+ */
+function calculate($count) {
+  $total_results = view_result_total_votes('cavalla_review_feed', 'results_count');
+  return ($count / $total_results) * 100 . '%';
+}
+
+/**
+ *
+ */
+function user_average_calculation(array $arr, $total_results) {
+
+  $item = [];
+
+  foreach ($arr as $key => $value) {
+
+    if (isset($arr[$key])) {
+      $item[$key] = $value * ($key + 1);
+    }
+  }
+
+  $item = array_sum($item) / $total_results;
+  return round($item, 1);
+}
+
+/**
+ *
+ */
+function view_result_total_votes($name, $display_id = NULL) {
+  $view = Views::getView($name);
+  $view->setDisplay($display_id);
+  // Contextual relationship filter.
+  $view->execute();
+  return count($view->result);
+}
+
+/**
+ * Code Update.
+ */
+function cavalla_reviews_feed_update_8004() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_reviews_feed');
+}

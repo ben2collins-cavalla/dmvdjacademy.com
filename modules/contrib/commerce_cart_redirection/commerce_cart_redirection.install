@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+*/
+function commerce_cart_redirection_uninstall() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+  $configFactory = \Drupal::configFactory();
+  $logger = \Drupal::logger('commerce_cart_redirection');
+  $configNames = [
+    'commerce_cart_redirection.settings.negate_product_bundles',
+    'commerce_cart_redirection.settings.product_bundles',
+  ];
+
+  foreach ($configNames as $configName) {
+    try {
+      $configFactory->getEditable($configName)->delete();
+    }
+    catch (\Exception $e) {
+      $logger->warning(sprintf('Unable to uninstall config: %s.', $configName));
+    }
+  }
+}

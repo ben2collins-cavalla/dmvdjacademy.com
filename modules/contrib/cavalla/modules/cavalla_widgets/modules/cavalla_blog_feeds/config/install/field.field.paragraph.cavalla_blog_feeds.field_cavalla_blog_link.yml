@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_blog_link
+    - paragraphs.paragraphs_type.cavalla_blog_feeds
+  module:
+    - link
+id: paragraph.cavalla_blog_feeds.field_cavalla_blog_link
+field_name: field_cavalla_blog_link
+entity_type: paragraph
+bundle: cavalla_blog_feeds
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_taxonomy_feed module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_taxonomy_feed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_taxonomy_feed':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our paragraphs templates in this module.
+ */
+function cavalla_taxonomy_feed_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_taxonomy_feed' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function cavalla_taxonomy_feed_preprocess_paragraph__cavalla_taxonomy_feed(&$variables) {
+  $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+  $name = Term::load($tid)->get('name')->value;
+  $vid = Term::load($tid)->get('vid')->target_id;
+  //var_dump($tid);
+
+  if ($vid == 'cavalla_blog_category') {
+      $variables['cavalla_blog_taxonomy_page'] = views_embed_view('cavalla_blog_taxonomy_page', 'cavalla_blog_taxonomy_category_page', $name);
+  }
+
+  if ($vid == 'cavalla_blog_tags') {
+      $variables['cavalla_blog_taxonomy_page'] = views_embed_view('cavalla_blog_taxonomy_page', 'cavalla_blog_taxonomy_tag_page', $name);
+  }
+
+  $variables['page_title'] = $name;
+}

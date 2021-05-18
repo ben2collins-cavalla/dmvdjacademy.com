@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_photo_album_feed module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_photo_album_feed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_photo_album_feed':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our paragraphs templates in this module.
+ */
+function cavalla_photo_album_feed_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_photo_album_feed' => [
+      'base hook' => 'paragraph',
+    ],
+    'viewfield_item__cavalla_photo_album_feed' => [
+      'base hook' => 'viewfield_item',
+    ],
+    'views_view__cavalla_photo_album_feed' => [
+      'base hook' => 'views_view',
+    ],
+    'views_view_unformatted__cavalla_photo_album_feed' => [
+      'base hook' => 'views_view_unformatted',
+    ],
+    'views_view_fields__cavalla_photo_album_feed' => [
+      'base hook' => 'views_view_fields',
+    ],
+    'container__cavalla_photo_album_feed' => [
+      'base hook' => 'container',
+    ],
+    'pager__cavalla_photo_album_feed' => [
+      'base hook' => 'pager',
+    ],
+
+  ];
+}
+
+/**
+ *
+ */
+function retrieveBaseUrl() {
+  // output: /myproject/index.php.
+  $currentPath = $_SERVER['PHP_SELF'];
+
+  // output: Array ( [dirname] => /myproject [basename] => index.php [extension] => php [filename] => index )
+  $pathInfo = pathinfo($currentPath);
+
+  // output: localhost.
+  $hostName = $_SERVER['HTTP_HOST'];
+
+  if ($hostName == 'localhost') {
+    $protocol = 'http://';
+
+  }
+  else {
+    $protocol = 'https://';
+  }
+
+  // return: http://localhost/myproject/
+  return $protocol . $hostName . $pathInfo['dirname'] . "/";
+  // Return $pathInfo['dirname']."/";.
+}
+
+/**
+ *
+ */
+function cavalla_photo_album_feed_preprocess(&$variables) {
+  $currentPath = retrieveBaseUrl();
+  $variables['currentPath'] = $currentPath;
+
+}

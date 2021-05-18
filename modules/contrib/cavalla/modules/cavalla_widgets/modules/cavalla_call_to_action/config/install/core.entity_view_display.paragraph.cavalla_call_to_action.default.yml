@@ -1,0 +1,117 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_animation
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_header
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_hyperlink
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_image
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_media
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_subtext
+    - field.field.paragraph.cavalla_call_to_action.field_call_to_action_video
+    - field.field.paragraph.cavalla_call_to_action.field_cavalla_call_to_action_vw
+    - field.field.paragraph.cavalla_call_to_action.field_cavalla_cta_logo
+    - field.field.paragraph.cavalla_call_to_action.field_cavalla_cta_overlay
+    - paragraphs.paragraphs_type.cavalla_call_to_action
+  module:
+    - image
+    - link
+id: paragraph.cavalla_call_to_action.default
+targetEntityType: paragraph
+bundle: cavalla_call_to_action
+mode: default
+content:
+  field_call_to_action_animation:
+    weight: 4
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_call_to_action_header:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_call_to_action_hyperlink:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_call_to_action_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    type: image_url
+    region: content
+  field_call_to_action_media:
+    type: entity_reference_entity_view
+    weight: 11
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_call_to_action_subtext:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_call_to_action_video:
+    type: entity_reference_entity_view
+    weight: 5
+    label: hidden
+    settings:
+      link: false
+      view_mode: default
+    third_party_settings: {  }
+    region: content
+  field_cavalla_call_to_action_vw:
+    weight: 6
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cavalla_cta_logo:
+    weight: 9
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_cavalla_cta_overlay:
+    weight: 10
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

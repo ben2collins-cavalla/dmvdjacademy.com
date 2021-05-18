@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_basic_html
+label: 'Basic HTML'
+icon_uuid: null
+description: 'Use Cavalla Basic HTML to create custom HTML, embed iframes or create plain text.'
+behavior_plugins: {  }

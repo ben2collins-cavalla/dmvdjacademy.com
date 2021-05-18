@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_hero
+    - field.field.taxonomy_term.cavalla_blog_category.field_cavalla_taxonomy_hide_himg
+    - taxonomy.vocabulary.cavalla_blog_category
+  module:
+    - text
+id: taxonomy_term.cavalla_blog_category.default
+targetEntityType: taxonomy_term
+bundle: cavalla_blog_category
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cavalla_taxonomy_hero:
+    type: entity_reference_entity_view
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_cavalla_taxonomy_hide_himg:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

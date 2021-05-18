@@ -1,0 +1,16 @@
+name: 'Commerce Add To Cart Link'
+type: module
+description: 'Provides a field formatter for Commerce product variations having an add to cart link instead of a form.'
+configure: commerce_add_to_cart_link.settings
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Commerce (contrib)'
+
+dependencies:
+  - commerce:commerce_cart
+  - commerce:commerce_product
+
+# Information added by Drupal.org packaging script on 2020-09-17
+version: '8.x-1.3'
+project: 'commerce_add_to_cart_link'
+datestamp: 1600358437

@@ -1,0 +1,17 @@
+  <div class="card">
+    <div class="card-header" id="accordion_bundle">
+      <h5 class="mb-0 w-100 d-table">
+        <button class="btn btn-link p-0 w-100 text-left d-table-cell" data-toggle="collapse" data-target="#collapse_{{ accordion_id }}" aria-expanded="true" aria-controls="collapseOne">
+          {{ content.field_cavalla_accordion_header[0] }}
+          <i aria-hidden="true" class="fa fa-plus-circle float-right mt-1"></i>
+          <i class="fa fa-minus-circle invisible" aria-hidden="true"></i>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse_{{ accordion_id }}" class="collapse" aria-labelledby="accordion_bundle" data-parent="#accordion">
+      <div class="card-body text-left">
+          {{ content.field_cavalla_accordion_text[0] }}
+      </div>
+  </div>
+</div>

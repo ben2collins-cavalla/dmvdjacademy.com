@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_pf_hyperlink
+    - paragraphs.paragraphs_type.cavalla_product_feed
+  module:
+    - link
+id: paragraph.cavalla_product_feed.field_cavalla_pf_hyperlink
+field_name: field_cavalla_pf_hyperlink
+entity_type: paragraph
+bundle: cavalla_product_feed
+label: Hyperlink
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

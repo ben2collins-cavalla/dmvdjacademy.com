@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cavalla_review_rating
+    - node.type.cavalla_reviews
+id: node.cavalla_reviews.field_cavalla_review_rating
+field_name: field_cavalla_review_rating
+entity_type: node
+bundle: cavalla_reviews
+label: Rating
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 5
+  prefix: ''
+  suffix: ''
+field_type: integer

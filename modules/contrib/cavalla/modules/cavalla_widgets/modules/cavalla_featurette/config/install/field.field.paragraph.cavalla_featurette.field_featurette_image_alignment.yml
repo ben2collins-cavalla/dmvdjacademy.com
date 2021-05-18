@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_featurette_image_alignment
+    - paragraphs.paragraphs_type.cavalla_featurette
+id: paragraph.cavalla_featurette.field_featurette_image_alignment
+field_name: field_featurette_image_alignment
+entity_type: paragraph
+bundle: cavalla_featurette
+label: 'Image alignment'
+description: 'Default "off" setting will have image right aligned alongside the featurette''s text.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

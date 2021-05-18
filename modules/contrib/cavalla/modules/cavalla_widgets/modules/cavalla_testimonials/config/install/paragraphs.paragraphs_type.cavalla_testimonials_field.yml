@@ -1,0 +1,11 @@
+uuid: a8a36f0f-73b6-4c35-8324-758d2c0047ac
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3aqPUPCepQJwyLayz-4-3LgGB2gBOi9bgG5YszP36n8
+id: cavalla_testimonials_field
+label: Testimonial
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

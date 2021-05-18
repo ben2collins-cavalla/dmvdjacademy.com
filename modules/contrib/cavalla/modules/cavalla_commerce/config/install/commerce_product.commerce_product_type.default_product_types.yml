@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: default_product_types
+label: 'Default Product Types'
+description: ''
+variationType: default_products
+multipleVariations: true
+injectVariationFields: true
+traits: {  }
+locked: false

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: cavalla_blog_feed_tags
+label: 'Article Tags'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/tags/[term:name]'
+selection_criteria:
+  560b6414-5074-4b6d-95f7-1a3dbba12e1d:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      cavalla_blog_tags: cavalla_blog_tags
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 560b6414-5074-4b6d-95f7-1a3dbba12e1d
+selection_logic: and
+weight: -5
+relationships: {  }

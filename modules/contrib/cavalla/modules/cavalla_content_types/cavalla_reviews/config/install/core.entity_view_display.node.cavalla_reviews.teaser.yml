@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cavalla_reviews.field_cavalla_review_fn
+    - field.field.node.cavalla_reviews.field_cavalla_review_image
+    - field.field.node.cavalla_reviews.field_cavalla_review_ln
+    - field.field.node.cavalla_reviews.field_cavalla_review_quote
+    - field.field.node.cavalla_reviews.field_cavalla_review_rating
+    - node.type.cavalla_reviews
+  module:
+    - user
+id: node.cavalla_reviews.teaser
+targetEntityType: node
+bundle: cavalla_reviews
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cavalla_review_fn: true
+  field_cavalla_review_image: true
+  field_cavalla_review_ln: true
+  field_cavalla_review_quote: true
+  field_cavalla_review_rating: true

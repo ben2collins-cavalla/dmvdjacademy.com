@@ -1,0 +1,5 @@
+commerce_cart_redirection.configuration:
+  title: 'Commerce Cart Redirection'
+  route_name: 'commerce_cart_redirection.commerce_cart_redirection_config_form'
+  parent: 'commerce_order.configuration'
+  weight: -5

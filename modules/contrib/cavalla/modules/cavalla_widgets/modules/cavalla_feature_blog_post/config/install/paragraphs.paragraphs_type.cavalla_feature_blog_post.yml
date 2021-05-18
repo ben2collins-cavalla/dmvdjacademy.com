@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_feature_blog_post
+label: 'Feature Blog Post'
+icon_uuid: null
+icon_default: null
+description: 'Use Cavalla Feature Blog Post to display feature Blog Post.'
+behavior_plugins: {  }

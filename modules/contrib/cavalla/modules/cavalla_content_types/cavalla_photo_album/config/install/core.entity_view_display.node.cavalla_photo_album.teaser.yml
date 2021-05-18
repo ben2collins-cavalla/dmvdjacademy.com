@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cavalla_photo_album.field_cavalla_photo_album_cover
+    - field.field.node.cavalla_photo_album.field_cavalla_photo_album_hero
+    - field.field.node.cavalla_photo_album.field_cavalla_photo_album_hide
+    - field.field.node.cavalla_photo_album.field_cavalla_photo_album_intro
+    - field.field.node.cavalla_photo_album.field_cavalla_photos_album_image
+    - node.type.cavalla_photo_album
+  module:
+    - user
+id: node.cavalla_photo_album.teaser
+targetEntityType: node
+bundle: cavalla_photo_album
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cavalla_photo_album_cover: true
+  field_cavalla_photo_album_hero: true
+  field_cavalla_photo_album_hide: true
+  field_cavalla_photo_album_intro: true
+  field_cavalla_photos_album_image: true

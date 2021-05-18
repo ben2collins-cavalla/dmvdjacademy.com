@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ *
+ */
+function cavalla_blog_feeds_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_blog_feeds');
+}
+
+function cavalla_blog_feeds_update_8002() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_blog_feeds');
+}
+
+function cavalla_blog_feeds_update_8003() {
+  \Drupal::service('config.installer')->installDefaultConfig('module', 'cavalla_blog_feeds');
+}

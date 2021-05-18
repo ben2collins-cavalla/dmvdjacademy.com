@@ -1,0 +1,69 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_accordion_field
+    - paragraphs.paragraphs_type.cavalla_accordion
+    - paragraphs.paragraphs_type.cavalla_accordion_field
+  module:
+    - entity_reference_revisions
+id: paragraph.cavalla_accordion.field_cavalla_accordion_field
+field_name: field_cavalla_accordion_field
+entity_type: paragraph
+bundle: cavalla_accordion
+label: 'Cavalla Accordion Field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cavalla_accordion_field: cavalla_accordion_field
+    target_bundles_drag_drop:
+      cavalla_accordion:
+        weight: 15
+        enabled: false
+      cavalla_accordion_field:
+        enabled: true
+        weight: 16
+      cavalla_call_to_action:
+        weight: 17
+        enabled: false
+      cavalla_card:
+        weight: 18
+        enabled: false
+      cavalla_card_field:
+        weight: 19
+        enabled: false
+      cavalla_card_introduction:
+        weight: 20
+        enabled: false
+      cavalla_featurette:
+        weight: 21
+        enabled: false
+      cavalla_photos:
+        weight: 22
+        enabled: false
+      cavalla_testimonials:
+        weight: 23
+        enabled: false
+      cavalla_testimonials_field:
+        weight: 24
+        enabled: false
+      cavalla_webform:
+        weight: 25
+        enabled: false
+      hp_graph:
+        weight: 26
+        enabled: false
+      hp_graph_field:
+        weight: 27
+        enabled: false
+      hp_parallax:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

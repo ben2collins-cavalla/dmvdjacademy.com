@@ -1,0 +1,11 @@
+name: 'Cavalla: Photo Album'
+type: module
+description: 'Provides a Content Type for adding Creating Photo Albums.'
+version: 8.x-1.0
+core: 8.x
+package: 'Cavalla Content Type'
+dependencies:
+  - menu_ui
+  - cavalla_photos
+  - pathauto
+

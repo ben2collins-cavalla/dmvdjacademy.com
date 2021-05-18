@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_blog_feeds_header
+    - paragraphs.paragraphs_type.cavalla_blog_feeds
+id: paragraph.cavalla_blog_feeds.field_cavalla_blog_feeds_header
+field_name: field_cavalla_blog_feeds_header
+entity_type: paragraph
+bundle: cavalla_blog_feeds
+label: Header
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

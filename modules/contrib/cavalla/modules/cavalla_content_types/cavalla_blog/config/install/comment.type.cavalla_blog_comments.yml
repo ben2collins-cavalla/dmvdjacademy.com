@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_blog_comments
+label: 'Cavalla Blog Comments'
+target_entity_type_id: node
+description: 'A Comments section used for Cavalla Blog content types'

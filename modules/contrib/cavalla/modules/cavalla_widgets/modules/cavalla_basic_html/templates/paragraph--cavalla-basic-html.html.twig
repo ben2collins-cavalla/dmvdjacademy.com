@@ -1,0 +1,11 @@
+<div class="container my-5 basic_html">
+  <section class="text-center">
+   {%  if true in content.field_cavalla_bh_header[0] %}
+      <h1>{{ content.field_cavalla_bh_header[0] }}</h1>
+    {% endif %}
+    {%  if true in content.field_cavalla_bh_text[0] %}
+      <p>{{ content.field_cavalla_bh_text[0] }}</p>
+    {% endif %}
+  </section>
+    {{ content.field_cavalla_bh_wysiwyg[0] }}
+</div>

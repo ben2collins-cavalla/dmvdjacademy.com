@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains commerce_cart_redirection.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function commerce_cart_redirection_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the commerce_cart_redirection module.
+    case 'help.page.commerce_cart_redirection':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Redirect to your cart page after adding a product to it') . '</p>';
+      return $output;
+
+    default:
+  }
+}

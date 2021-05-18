@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_pf_product_count
+    - paragraphs.paragraphs_type.cavalla_product_feed
+id: paragraph.cavalla_product_feed.field_cavalla_pf_product_count
+field_name: field_cavalla_pf_product_count
+entity_type: paragraph
+bundle: cavalla_product_feed
+label: 'Product Count'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

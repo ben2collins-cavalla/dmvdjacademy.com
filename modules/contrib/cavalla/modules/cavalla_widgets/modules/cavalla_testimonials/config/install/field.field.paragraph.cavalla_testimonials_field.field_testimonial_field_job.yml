@@ -1,0 +1,21 @@
+uuid: 9f6a1219-62d3-4934-9b86-35908bd1dfdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testimonial_field_job
+    - paragraphs.paragraphs_type.cavalla_testimonials_field
+_core:
+  default_config_hash: wny6rdg0_qbV4-bJjrx-xdp5YIx1MEaqcpG5rcfueXk
+id: paragraph.cavalla_testimonials_field.field_testimonial_field_job
+field_name: field_testimonial_field_job
+entity_type: paragraph
+bundle: cavalla_testimonials_field
+label: Job
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

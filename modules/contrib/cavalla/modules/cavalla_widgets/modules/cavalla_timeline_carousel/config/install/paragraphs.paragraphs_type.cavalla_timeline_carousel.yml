@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_timeline_carousel
+label: 'Timeline Carousel'
+icon_uuid: null
+icon_default: null
+description: 'Use this widget to create timelines that include full background image carousels.'
+behavior_plugins: {  }

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Commerce Tags'
+vid: commerce_tags
+description: 'Products/ Merchandise related tags.'
+weight: 0

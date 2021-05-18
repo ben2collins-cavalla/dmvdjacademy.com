@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the cavalla_theme theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\node\Entity\Node;
+use Drupal\media\Entity\Media;
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\block\Entity\Block;
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Link;
+use \Drupal\taxonomy\Entity\Term;
+
+
+function getBaseUrl() {
+    // output: /myproject/index.php
+    $currentPath = $_SERVER['PHP_SELF'];
+    // output: Array ( [dirname] => /myproject [basename] => index.php [extension] => php [filename] => index )
+    $pathInfo = pathinfo($currentPath);
+    // output: localhost
+    $hostName = $_SERVER['HTTP_HOST'];
+
+    if ($hostName=='localhost'){
+      $protocol = 'http://';
+    }
+    else{
+      $protocol = 'https://';
+    }
+    // return: http://localhost/myproject/
+    return $protocol.$hostName.$pathInfo['dirname']."/";
+      //  return $pathInfo['dirname']."/";
+}
+
+function cavalla_theme_preprocess_page(&$variables){
+  cavalla_theme_extend_theme_variables($variables);
+  $variables['base_url'] = getBaseUrl();
+  global $base_url, $base_path;
+  $variables['logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+
+}
+
+// Make all theme settings available to insert in pages
+function cavalla_theme_extend_theme_variables(&$variables){
+   $theme_name = \Drupal::theme()->getActiveTheme()->getName();
+   $theme_settings = \Drupal::config($theme_name . '.settings');
+   CacheableMetadata::createFromRenderArray($variables)
+     ->addCacheableDependency($theme_settings)
+     ->applyTo($variables);
+   $variables += $theme_settings->getOriginal();
+}
+
+function cavalla_theme_preprocess_node(&$variables) {
+  /* create a block object */
+  $breadcrump_block_object = \Drupal\block\Entity\Block::load('cavalla_theme_breadcrumbs');
+  /* creates a renderable array from the block object */
+  $variables['breadcrumb'] = \Drupal::entityManager()->getViewBuilder('block')->view($breadcrump_block_object);
+}
+
+function cavalla_theme_preprocess_taxonomy_term(&$variables){
+  $breadcrump_block_object = \Drupal\block\Entity\Block::load('cavalla_theme_breadcrumbs');
+  /* creates a renderable array from the block object */
+  $variables['breadcrumb'] = \Drupal::entityManager()->getViewBuilder('block')->view($breadcrump_block_object);
+
+  $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+  $name = Term::load($tid)->get('name')->value;
+  $variables['page_title'] = $name;
+}
+
+function cavalla_theme_preprocess_paragraph__cavalla_taxonomy(&$variables){
+  $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+  $name = Term::load($tid)->get('name')->value;
+  $variables['page_title'] = $name;
+}
+
+function cavalla_theme_preprocess_breadcrumb(&$variables){
+  if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
+    $variables['breadcrumb'][] = array('text' => $node->getTitle());
+    $variables['#cache']['contexts'][] = "url.path";
+    $variables['#cache']['tags'][] = "node:{$node->nid->value}";
+  }
+}
+
+function cavalla_theme_preprocess_paragraph(&$variables) {
+  $variables['base_url_node']= getBaseUrl();
+  $variables['logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+
+}
+
+function cavalla_theme_preprocess_input__password(&$variables){
+  $variables['attributes']['class'][] = 'form-control';
+}
+
+function cavalla_theme_preprocess_select_taxonomy_term(&$variables){
+  $variables['attributes']['class'][] = 'col-6';
+}
+
+function cavalla_theme_preprocess_select(&$variables){
+  $variables['attributes']['class'][] = 'form-control';
+}
+
+function cavalla_theme_preprocess_status_messages(&$variables){
+  $variables['attributes']['class'][] = 'alert alert-danger';
+}
+
+function cavalla_theme_update_8001() {
+  \Drupal::service('config.installer')->installDefaultConfig('theme', 'cavalla_theme');
+}
+

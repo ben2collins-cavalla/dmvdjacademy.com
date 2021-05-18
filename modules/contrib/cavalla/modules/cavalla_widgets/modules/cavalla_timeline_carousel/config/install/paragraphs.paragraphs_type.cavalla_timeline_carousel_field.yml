@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_timeline_carousel_field
+label: 'Timeline Event'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

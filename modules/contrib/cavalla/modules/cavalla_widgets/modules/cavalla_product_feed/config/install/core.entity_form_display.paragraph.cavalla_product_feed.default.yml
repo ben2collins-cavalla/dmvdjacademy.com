@@ -1,0 +1,112 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_category
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_header
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_hyperlink
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_product_count
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_tags
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_text
+    - paragraphs.paragraphs_type.cavalla_product_feed
+  module:
+    - field_group
+    - link
+third_party_settings:
+  field_group:
+    group_cavalla_pf_introduction:
+      children:
+        - field_cavalla_pf_header
+        - field_cavalla_pf_text
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Introduction
+    group_cavalla_pf_category_tag:
+      children:
+        - field_cavalla_pf_category
+        - field_cavalla_pf_tags
+        - field_cavalla_pf_product_count
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Category/Tag(s)
+    group_cavalla_pf_hyperlink:
+      children:
+        - field_cavalla_pf_hyperlink
+      parent_name: ''
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Hyperlink
+id: paragraph.cavalla_product_feed.default
+targetEntityType: paragraph
+bundle: cavalla_product_feed
+mode: default
+content:
+  field_cavalla_pf_category:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_cavalla_pf_header:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_pf_hyperlink:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_cavalla_pf_product_count:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_cavalla_pf_tags:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_cavalla_pf_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  status: true

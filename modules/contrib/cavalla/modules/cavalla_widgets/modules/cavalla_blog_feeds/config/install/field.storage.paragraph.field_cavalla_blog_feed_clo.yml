@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_cavalla_blog_feed_clo
+field_name: field_cavalla_blog_feed_clo
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Default Taxonomy List'
+      label: 'Default Taxonomy List'
+    -
+      value: 'Custom Link'
+      label: 'Custom Link'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

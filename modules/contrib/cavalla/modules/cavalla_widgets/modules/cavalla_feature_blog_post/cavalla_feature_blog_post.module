@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * Cavalla_feature_blog_post module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
+use Drupal\media\Entity\Media;
+
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function cavalla_feature_blog_post_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cavalla_feature_blog_post':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ * Lets us define our paragraphs templates in this module.
+ */
+function cavalla_feature_blog_post_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__cavalla_feature_blog_post' => [
+      'base hook' => 'paragraph',
+    ],
+
+  ];
+}
+
+/**
+ *
+ */
+function cavalla_feature_blog_post_preprocess_paragraph__cavalla_feature_blog_post(&$variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  // Get media image URL.
+  if ($paragraph->hasField('field_cavalla_feature_blog_post')) {
+    $article = $paragraph->get('field_cavalla_feature_blog_post')->getValue();
+    if ($article && !empty($article)) {
+      $entity = Node::load($article[0]['target_id']);
+      // Title.
+      $variables['title'] = $entity->getTitle();
+      // Summary.
+      $variables['summary'] = $entity->field_cavalla_blog_summary->value;
+
+      // Link.
+      $variables['hyperlink'] = $entity->toUrl()->toString();
+
+      $featured_image = $entity->get('field_cavalla_blog_feature_img')->getValue()[0]['target_id'];
+      // Load the image file.
+      $media = Media::load($featured_image);
+      if ($media->field_media_image->entity != NULL){
+        $image_uri = $media->field_media_image->entity->getFileUri();
+      }
+      $variables['image'] = file_create_url($image_uri);
+
+    }
+  }
+}

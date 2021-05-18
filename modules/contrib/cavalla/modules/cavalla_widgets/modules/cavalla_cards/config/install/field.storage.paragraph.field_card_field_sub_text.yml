@@ -1,0 +1,21 @@
+uuid: 66b6ffe9-2cf0-4ee8-a84e-ab6c9aedd40d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: eDXLmVNpzlY8pzCnSwBsY5-12dVP77nxnITgwIxsiyc
+id: paragraph.field_card_field_sub_text
+field_name: field_card_field_sub_text
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

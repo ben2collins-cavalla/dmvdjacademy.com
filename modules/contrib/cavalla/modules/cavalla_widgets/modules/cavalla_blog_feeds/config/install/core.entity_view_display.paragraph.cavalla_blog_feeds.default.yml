@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_feed_clo
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_feed_count
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_feed_displays
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_feed_taxonomy
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_feeds_header
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_feeds_subtext
+    - field.field.paragraph.cavalla_blog_feeds.field_cavalla_blog_link
+    - paragraphs.paragraphs_type.cavalla_blog_feeds
+  module:
+    - link
+    - options
+id: paragraph.cavalla_blog_feeds.default
+targetEntityType: paragraph
+bundle: cavalla_blog_feeds
+mode: default
+content:
+  field_cavalla_blog_feed_clo:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cavalla_blog_feed_count:
+    weight: 2
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_cavalla_blog_feed_displays:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_cavalla_blog_feed_taxonomy:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_cavalla_blog_feeds_header:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_blog_feeds_subtext:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_cavalla_blog_link:
+    weight: 6
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

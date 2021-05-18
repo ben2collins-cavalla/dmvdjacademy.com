@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_category
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_header
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_hyperlink
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_product_count
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_tags
+    - field.field.paragraph.cavalla_product_feed.field_cavalla_pf_text
+    - paragraphs.paragraphs_type.cavalla_product_feed
+  module:
+    - link
+id: paragraph.cavalla_product_feed.default
+targetEntityType: paragraph
+bundle: cavalla_product_feed
+mode: default
+content:
+  field_cavalla_pf_category:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_cavalla_pf_header:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cavalla_pf_hyperlink:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_cavalla_pf_product_count:
+    weight: 4
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_cavalla_pf_tags:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_cavalla_pf_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

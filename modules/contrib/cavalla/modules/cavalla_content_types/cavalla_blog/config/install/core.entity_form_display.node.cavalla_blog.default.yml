@@ -1,0 +1,253 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.cavalla_blog.field_cavalla_blog_category
+    - field.field.node.cavalla_blog.field_cavalla_blog_comments
+    - field.field.node.cavalla_blog.field_cavalla_blog_feature_img
+    - field.field.node.cavalla_blog.field_cavalla_blog_hero
+    - field.field.node.cavalla_blog.field_cavalla_blog_hero_img_hide
+    - field.field.node.cavalla_blog.field_cavalla_blog_sp_feeds
+    - field.field.node.cavalla_blog.field_cavalla_blog_summary
+    - field.field.node.cavalla_blog.field_cavalla_blog_widgets
+    - field.field.node.cavalla_blog.field_suggested_post_feeds_foot
+    - node.type.cavalla_blog
+  module:
+    - comment
+    - field_group
+    - media_library
+    - paragraphs
+    - path
+third_party_settings:
+  field_group:
+    group_cavalla_blog_post:
+      children:
+        - group_cavalla_blog_w
+      parent_name: ''
+      weight: 4
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Blog Post'
+    group_cavalla_blog_tags_cat:
+      children:
+        - field_cavalla_blog_category
+      parent_name: ''
+      weight: 5
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Tags/Category
+    group_cavalla_blog_image:
+      children:
+        - field_cavalla_blog_feature_img
+      parent_name: ''
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Image
+    group_cavalla_blog_w:
+      children:
+        - field_cavalla_blog_widgets
+      parent_name: group_cavalla_blog_post
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Widgets
+    group_cavalla_blog_hero_image:
+      children:
+        - field_cavalla_blog_hero
+        - field_cavalla_blog_hero_img_hide
+      parent_name: ''
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Hero Image'
+    group_cavalla_blog_sp_feeds:
+      children:
+        - field_cavalla_blog_sp_feeds
+      parent_name: ''
+      weight: 6
+      format_type: details
+      region: content
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+        open: false
+      label: 'Suggested Post Feeds'
+    group_cavalla_blog_sp_feeds_foot:
+      children:
+        - field_suggested_post_feeds_foot
+      parent_name: ''
+      weight: 7
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Suggested Post Feed (Footer)'
+    group_cavalla_blog_summary:
+      children:
+        - field_cavalla_blog_summary
+      parent_name: ''
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Summary
+id: node.cavalla_blog.default
+targetEntityType: node
+bundle: cavalla_blog
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cavalla_blog_category:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_cavalla_blog_comments:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_cavalla_blog_feature_img:
+    type: media_library_widget
+    weight: 19
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_cavalla_blog_hero:
+    type: media_library_widget
+    weight: 12
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  field_cavalla_blog_hero_img_hide:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cavalla_blog_sp_feeds:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_cavalla_blog_summary:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_blog_widgets:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_suggested_post_feeds_foot:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 11
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: options_select
+    weight: 8
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

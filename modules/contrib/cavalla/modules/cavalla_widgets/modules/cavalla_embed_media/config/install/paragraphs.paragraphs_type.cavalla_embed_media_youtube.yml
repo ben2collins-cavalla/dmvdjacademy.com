@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: cavalla_embed_media_youtube
+label: 'Embed Youtube'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

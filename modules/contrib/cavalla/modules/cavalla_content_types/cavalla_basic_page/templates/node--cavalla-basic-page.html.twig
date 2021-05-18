@@ -1,0 +1,27 @@
+<section id="basic_page_cavalla">
+ {% if 'Off' in content.field_cavalla_bp_hero_image_hide[0] %}
+  <!--Hero Image-->
+    <section class="hero_image">
+      {%  if true in content.field_cavalla_bp_hero_media[0] %}
+        {{ content.field_cavalla_bp_hero_media }}
+    	  <section class="marketing_background_text center_text">
+    		  <section class="container">
+    				<h1 class="title-header">{{node.title.value}}</h1>
+    			</section>
+    		</section>
+      {% endif %}
+    </section>
+      <!--Hero Image-->
+
+      <!--Breadcrumb-->
+      <section class="breadcrumb_section p-3">
+          <div class="container">
+              <nav aria-label="breadcrumb" class="breadcrumb">
+                  {{ breadcrumb }}
+              </nav>
+          </div>
+      </section>
+     <!--Breadcrumb-->
+  {% endif %}
+  {{ content.field_cavalla_bp_widgets }}
+</section>

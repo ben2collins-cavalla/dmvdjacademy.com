@@ -1,0 +1,14 @@
+name: 'Commerce Cart Redirection'
+type: module
+description: 'Redirect to the checkout after adding a product to the cart'
+core: 8.x
+package: 'Commerce'
+configure: commerce_cart_redirection.commerce_cart_redirection_config_form
+dependencies:
+  - drupal:commerce
+  - drupal:commerce_checkout
+  - drupal:commerce_product
+# Information added by Drupal.org packaging script on 2019-10-05
+version: '8.x-2.1'
+project: 'commerce_cart_redirection'
+datestamp: 1570252386

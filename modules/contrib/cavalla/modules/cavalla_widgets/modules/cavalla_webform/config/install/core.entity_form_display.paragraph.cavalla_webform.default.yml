@@ -1,0 +1,271 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cavalla_webform.field_cavalla_webform_hide_
+    - field.field.paragraph.cavalla_webform.field_cavalla_webform_hide_map
+    - field.field.paragraph.cavalla_webform.field_cavalla_webform_hide_wf
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_city
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_state
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_street
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_address_zipcode
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_company_name
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_email
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_intro_text
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_intro_title
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_map
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_telephone
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_webform
+    - field.field.paragraph.cavalla_webform.field_cavalla_wf_work_hours
+    - paragraphs.paragraphs_type.cavalla_webform
+  module:
+    - field_group
+    - telephone
+    - text
+    - webform
+third_party_settings:
+  field_group:
+    group_cavalla_wf_address:
+      children:
+        - field_cavalla_wf_address_street
+        - field_cavalla_wf_address_city
+        - field_cavalla_wf_address_state
+        - field_cavalla_wf_address_zipcode
+      parent_name: group_cavalla_webform_bi
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Address
+    group_cavalla_wf_telephone:
+      children:
+        - field_cavalla_wf_telephone
+      parent_name: group_cavalla_webform_bi
+      weight: 3
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Telephone
+    group_cavalla_wf_email:
+      children:
+        - field_cavalla_wf_email
+      parent_name: group_cavalla_webform_bi
+      weight: 4
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: E-mail
+    group_cavalla_wf_company_name:
+      children:
+        - field_cavalla_wf_company_name
+      parent_name: group_cavalla_webform_bi
+      weight: 1
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Company Name'
+    group_cavalla_wf_map:
+      children:
+        - field_cavalla_wf_map
+        - field_cavalla_webform_hide_map
+      parent_name: ''
+      weight: 4
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Embed Google Map'
+    group_cavalla_wf_work_hours:
+      children:
+        - field_cavalla_wf_work_hours
+      parent_name: group_cavalla_webform_bi
+      weight: 5
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Company Work Hours'
+    group_cavalla_wf_introduction:
+      children:
+        - field_cavalla_wf_intro_title
+        - field_cavalla_wf_intro_text
+      parent_name: ''
+      weight: 0
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: Introduction
+    group_cavalla_webform_bi:
+      children:
+        - group_cavalla_wf_company_name
+        - group_cavalla_wf_address
+        - group_cavalla_wf_telephone
+        - group_cavalla_wf_email
+        - group_cavalla_wf_work_hours
+        - field_cavalla_webform_hide_
+      parent_name: ''
+      weight: 2
+      format_type: details
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Business Information'
+id: paragraph.cavalla_webform.default
+targetEntityType: paragraph
+bundle: cavalla_webform
+mode: default
+content:
+  field_cavalla_webform_hide_:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cavalla_webform_hide_map:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cavalla_webform_hide_wf:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cavalla_wf_address_city:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_wf_address_state:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_cavalla_wf_address_street:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_wf_address_zipcode:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_wf_company_name:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_wf_email:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_cavalla_wf_intro_text:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_cavalla_wf_intro_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cavalla_wf_map:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_cavalla_wf_telephone:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_cavalla_wf_webform:
+    weight: 6
+    settings:
+      default_data: true
+      webforms: {  }
+    third_party_settings: {  }
+    type: webform_entity_reference_select
+    region: content
+  field_cavalla_wf_work_hours:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

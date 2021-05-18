@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cavalla_blog_feed_displays
+    - paragraphs.paragraphs_type.cavalla_blog_feeds
+  module:
+    - options
+id: paragraph.cavalla_blog_feeds.field_cavalla_blog_feed_displays
+field_name: field_cavalla_blog_feed_displays
+entity_type: paragraph
+bundle: cavalla_blog_feeds
+label: 'Display Options'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Jumbotron and List'
+default_value_callback: ''
+settings: {  }
+field_type: list_string
